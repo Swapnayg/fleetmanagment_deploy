@@ -277,7 +277,7 @@ const handleLogOut = (e) => {
                     New Party Bill
                   </Link>
                 </li> */}
-                {/* <li>
+                <li>
                   <Link
                     href="/party-goods"
                     className={
@@ -287,7 +287,7 @@ const handleLogOut = (e) => {
                     <i className="ri-circle-fill circle-icon text-success-main w-auto" />{" "}
                     Party Bill
                   </Link>
-                </li> */}
+                </li>
 
                   <li>
                   <Link
@@ -341,7 +341,7 @@ const handleLogOut = (e) => {
                     New Party Bill
                   </Link>
                 </li> */}
-                {/* <li>
+                <li>
                   <Link
                     href="/party-oils"
                     className={pathname === "/party-oils" ? "active-page" : ""}
@@ -349,7 +349,7 @@ const handleLogOut = (e) => {
                     <i className="ri-circle-fill circle-icon text-warning-main w-auto" />{" "}
                     Party Bill
                   </Link>
-                </li> */}
+                </li>
 
                   <li>
                   <Link

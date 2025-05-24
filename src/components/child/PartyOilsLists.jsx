@@ -1,21 +1,15 @@
 "use client";
-import React, { useState } from "react";
 import { useEffect } from "react";
-import Link from "next/link";
-import $ from 'jquery'; 
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { validate } from "uuid";
-const loadJQueryAndDataTables = async () => {
-  const $ = (await import("jquery")).default;
-  await import("datatables.net-dt/js/dataTables.dataTables.js");
-  return $;
-};
-import moment from 'moment';
+import React, { useState } from "react";
+import $ from 'jquery'; 
+import Select from 'react-select';
+import AsyncSelect from 'react-select/async';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { TrendUp } from "@phosphor-icons/react";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import moment from 'moment';
 
 const PartyOilsLists = () => {
 
@@ -827,13 +821,13 @@ const PartyOilsLists = () => {
                 <Icon icon='mingcute:square-arrow-left-line' className='text-xl' />
                 Back
               </button>
-          {/* <Link
+          <Link
             href='#'
             className='btn btn-sm btn-primary-600 radius-8 d-inline-flex align-items-center gap-1'
           >
             <Icon icon='pepicons-pencil:paper-plane' className='text-xl' />
             Send Invoice
-          </Link> */}
+          </Link>
           <button type='button' className='btn btn-sm btn-danger radius-8 d-inline-flex align-items-center gap-1' onClick={handleDownload}>
             <Icon icon='solar:download-linear' className='text-xl' />
             Download
