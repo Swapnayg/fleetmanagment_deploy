@@ -25,52 +25,52 @@ const BalanaceSheetLists = () => {
   }
 
   const handlePrint = (e) => {
-    // var cust_Name = "Balance Sheet Report";
-    // var f_st_date = moment(startDate).format("D MMMM YYYY");
-    // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('https://secondsweb.com/generateBalanceSheet_pdf', { 
-    //   method: 'POST', 
-    //   headers: {   'Accept': 'application/json',
-    //     'Content-Type': 'application/json'  }, 
-    //     body: JSON.stringify({ userid:localStorage.getItem('id'),startDate: startDate, endDate: endDate, f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
-    //   })
-    // .then(resp => resp.blob())
-    // .then(blob => {
-    //   const url = window.URL.createObjectURL(blob);
-    //   const a = document.createElement('a');
-    //   a.style.display = 'none';
-    //   a.href = url;
-    //   a.download = 'Balance_Sheet_Report.pdf';
-    //   document.body.appendChild(a);
-    //   a.click();
-    // })
-    // .catch(() => 
-    // console.log("error"));
+    var cust_Name = "Balance Sheet Report";
+    var f_st_date = moment(startDate).format("D MMMM YYYY");
+    var f_en_date = moment(endDate).format("D MMMM YYYY");
+    fetch('https://secondsweb.com/generateBalanceSheet_pdf', { 
+      method: 'POST', 
+      headers: {   'Accept': 'application/json',
+        'Content-Type': 'application/json'  }, 
+        body: JSON.stringify({ userid:localStorage.getItem('id'),startDate: startDate, endDate: endDate, f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
+      })
+    .then(resp => resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'Balance_Sheet_Report.pdf';
+      document.body.appendChild(a);
+      a.click();
+    })
+    .catch(() => 
+    console.log("error"));
   };
 
   const handleExport = (e) => {
     e.preventDefault();  
-    // var cust_Name = "Balance Sheet Report";
-    // var f_st_date = moment(startDate).format("D MMMM YYYY");
-    // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('https://secondsweb.com/generateBalanceSheet_Excel', { 
-    //   method: 'POST', 
-    //   headers: {   'Accept': 'application/json',
-    //     'Content-Type': 'application/json'  }, 
-    //     body: JSON.stringify({ userid:localStorage.getItem('id'),startDate: startDate, endDate: endDate, f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
-    //   })
-    // .then(resp => resp.blob())
-    // .then(blob => {
-    //   const url = window.URL.createObjectURL(blob);
-    //   const a = document.createElement('a');
-    //   a.style.display = 'none';
-    //   a.href = url;
-    //   a.download = 'Balance_Sheet_Report.xlsx';
-    //   document.body.appendChild(a);
-    //   a.click();
-    // })
-    // .catch(() => 
-    // console.log("error"));
+    var cust_Name = "Balance Sheet Report";
+    var f_st_date = moment(startDate).format("D MMMM YYYY");
+    var f_en_date = moment(endDate).format("D MMMM YYYY");
+    fetch('https://secondsweb.com/generateBalanceSheet_Excel', { 
+      method: 'POST', 
+      headers: {   'Accept': 'application/json',
+        'Content-Type': 'application/json'  }, 
+        body: JSON.stringify({ userid:localStorage.getItem('id'),startDate: startDate, endDate: endDate, f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
+      })
+    .then(resp => resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'Balance_Sheet_Report.xlsx';
+      document.body.appendChild(a);
+      a.click();
+    })
+    .catch(() => 
+    console.log("error"));
   };
   
 function addDays(date, days) {

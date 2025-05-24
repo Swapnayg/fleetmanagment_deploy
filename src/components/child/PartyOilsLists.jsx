@@ -65,20 +65,20 @@ const PartyOilsLists = () => {
   }
 
   const handleDownload = (e) => {
-    // fetch('https://secondsweb.com/generatebill_pdf/'+ view_row_id+'/'+localStorage.getItem('id'))
-    // .then(resp => resp.blob())
-    // .then(blob => {
-    //   const url = window.URL.createObjectURL(blob);
-    //   var partyname = view_party_name;
-    //   const a = document.createElement('a');
-    //   a.style.display = 'none';
-    //   a.href = url;
-    //   a.download = partyname.toString().replace(" ","_") + '_Bill.pdf';
-    //   document.body.appendChild(a);
-    //   a.click();
-    // })
-    // .catch(() => 
-    // console.log("error"));
+    fetch('https://secondsweb.com/generatebill_pdf/'+ view_row_id+'/'+localStorage.getItem('id'))
+    .then(resp => resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      var partyname = view_party_name;
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = partyname.toString().replace(" ","_") + '_Bill.pdf';
+      document.body.appendChild(a);
+      a.click();
+    })
+    .catch(() => 
+    console.log("error"));
 };
 
 
@@ -526,7 +526,7 @@ const PartyOilsLists = () => {
         }));
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           fetch('https://secondsweb.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
              for (let i = 0; i < jsdata.length; i++) {

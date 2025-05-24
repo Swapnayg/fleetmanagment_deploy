@@ -86,25 +86,25 @@ const AllOilsReportLists = () => {
     }))
   }
    const handlePrint = (e) => {
-    //  var cust_Name = "All Oils Report";
-    //  fetch('https://secondsweb.com/generateAllGoodsOilsReport_pdf', { 
-    //    method: 'POST', 
-    //       headers: {   'Accept': 'application/json',
-    //         'Content-Type': 'application/json'  }, 
-    //         body: JSON.stringify({"repType":"oil",userid:localStorage.getItem('id')})
-    //       })
-    //  .then(resp => resp.blob())
-    //  .then(blob => {
-    //    const url = window.URL.createObjectURL(blob);
-    //    const a = document.createElement('a');
-    //    a.style.display = 'none';
-    //    a.href = url;
-    //    a.download = 'All_Oils_Report.pdf';
-    //    document.body.appendChild(a);
-    //    a.click();
-    //  })
-    //  .catch(() => 
-    //  console.log("error"));
+     var cust_Name = "All Oils Report";
+     fetch('https://secondsweb.com/generateAllGoodsOilsReport_pdf', { 
+       method: 'POST', 
+          headers: {   'Accept': 'application/json',
+            'Content-Type': 'application/json'  }, 
+            body: JSON.stringify({"repType":"oil",userid:localStorage.getItem('id')})
+          })
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'All_Oils_Report.pdf';
+       document.body.appendChild(a);
+       a.click();
+     })
+     .catch(() => 
+     console.log("error"));
    };
 
   const handleExport = (e) => {
@@ -139,7 +139,7 @@ const AllOilsReportLists = () => {
       let table;
       loadJQueryAndDataTables()
       .then(($) => {
-         // window.$ = window.jQuery = $;
+         window.$ = window.jQuery = $;
         fetch("https://secondsweb.com/get_goods_oils_data", { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',

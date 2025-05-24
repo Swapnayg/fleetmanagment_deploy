@@ -82,20 +82,20 @@ const ManageCustomerList = () => {
     }
 
 const handlePrint = (e) => {
-  // var party_type = 'client';
-  // fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
-  // .then(resp => resp.blob())
-  // .then(blob => {
-  //   const url = window.URL.createObjectURL(blob);
-  //   var partyname = l_partyName;
-  //   const a = document.createElement('a');
-  //   a.style.display = 'none';
-  //   a.href = url;
-  //   a.download = partyname.toString().replace(" ","_") + '_Ledger.pdf';
-  //   document.body.appendChild(a);
-  //   a.click();
-  //   }).catch(() => 
-  // console.log("error"));
+  var party_type = 'client';
+  fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+  .then(resp => resp.blob())
+  .then(blob => {
+    const url = window.URL.createObjectURL(blob);
+    var partyname = l_partyName;
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = partyname.toString().replace(" ","_") + '_Ledger.pdf';
+    document.body.appendChild(a);
+    a.click();
+    }).catch(() => 
+  console.log("error"));
   };
     
 
@@ -386,7 +386,7 @@ const handleBack = (e) => {
 
     loadJQueryAndDataTables()
       .then(($) => {
-         // window.$ = window.jQuery = $;
+         window.$ = window.jQuery = $;
         fetch('https://secondsweb.com/customer_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsdata) => {
            for (let i = 0; i < jsdata.length; i++) {

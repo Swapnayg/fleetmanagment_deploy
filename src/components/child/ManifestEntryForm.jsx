@@ -302,7 +302,7 @@ const ManifestEntryForm = () => {
       let table;
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {

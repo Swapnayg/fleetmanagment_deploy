@@ -22,25 +22,25 @@ const ManifestGoodsReport = () => {
   const [veh_Ad_Amt, setveh_Ad_Amt] = useState(0);
 
    const handlePrint = (e) => {
-    //  var cust_Name = "Manifest Goods Report";
-    //  fetch('https://secondsweb.com/generateManifestReport_pdf', { 
-    //    method: 'POST', 
-    //       headers: {   'Accept': 'application/json',
-    //         'Content-Type': 'application/json'  }, 
-    //         body: JSON.stringify({"repType":"goods",userid:localStorage.getItem('id')})
-    //       })
-    //  .then(resp => resp.blob())
-    //  .then(blob => {
-    //    const url = window.URL.createObjectURL(blob);
-    //    const a = document.createElement('a');
-    //    a.style.display = 'none';
-    //    a.href = url;
-    //    a.download = 'Manifest_Goods_Report.pdf';
-    //    document.body.appendChild(a);
-    //    a.click();
-    //  })
-    //  .catch(() => 
-    //  console.log("error"));
+     var cust_Name = "Manifest Goods Report";
+     fetch('https://secondsweb.com/generateManifestReport_pdf', { 
+       method: 'POST', 
+          headers: {   'Accept': 'application/json',
+            'Content-Type': 'application/json'  }, 
+            body: JSON.stringify({"repType":"goods",userid:localStorage.getItem('id')})
+          })
+     .then(resp => resp.blob())
+     .then(blob => {
+       const url = window.URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.style.display = 'none';
+       a.href = url;
+       a.download = 'Manifest_Goods_Report.pdf';
+       document.body.appendChild(a);
+       a.click();
+     })
+     .catch(() => 
+     console.log("error"));
    };
 
   const handleExport = (e) => {
@@ -75,7 +75,7 @@ const ManifestGoodsReport = () => {
       let table;
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               let freight_amt = 0;

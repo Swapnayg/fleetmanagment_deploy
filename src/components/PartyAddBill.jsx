@@ -226,7 +226,7 @@ const PartyAddBill = () => {
       let table;
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           fetch('https://secondsweb.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {

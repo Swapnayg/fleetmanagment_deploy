@@ -38,29 +38,29 @@ const TaxReportLists = () => {
   }
 
   const handlePrint = (e) => {
-    // const st_Date = new Date(startDate);
-    // const en_Date = new Date(endDate);
-    // var cust_Name = "Tax Report";
-    // var f_st_date = moment(startDate).format("D MMMM YYYY");
-    // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('https://secondsweb.com/generateTaxReport_pdf', { 
-    //   method: 'POST', 
-    //   headers: {   'Accept': 'application/json',
-    //     'Content-Type': 'application/json'  }, 
-    //     body: JSON.stringify({userid:localStorage.getItem('id'), startDate: addDays(st_Date, 1), endDate: addDays(en_Date, 1), f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
-    //   })
-    // .then(resp => resp.blob())
-    // .then(blob => {
-    //   const url = window.URL.createObjectURL(blob);
-    //   const a = document.createElement('a');
-    //   a.style.display = 'none';
-    //   a.href = url;
-    //   a.download = 'Tax_Report.pdf';
-    //   document.body.appendChild(a);
-    //   a.click();
-    // })
-    // .catch(() => 
-    // console.log("error"));
+    const st_Date = new Date(startDate);
+    const en_Date = new Date(endDate);
+    var cust_Name = "Tax Report";
+    var f_st_date = moment(startDate).format("D MMMM YYYY");
+    var f_en_date = moment(endDate).format("D MMMM YYYY");
+    fetch('https://secondsweb.com/generateTaxReport_pdf', { 
+      method: 'POST', 
+      headers: {   'Accept': 'application/json',
+        'Content-Type': 'application/json'  }, 
+        body: JSON.stringify({userid:localStorage.getItem('id'), startDate: addDays(st_Date, 1), endDate: addDays(en_Date, 1), f_st_date:f_st_date, f_en_date:f_en_date,cust_Name:cust_Name})
+      })
+    .then(resp => resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'Tax_Report.pdf';
+      document.body.appendChild(a);
+      a.click();
+    })
+    .catch(() => 
+    console.log("error"));
   };
 
   const handleExport = (e) => {
@@ -136,7 +136,7 @@ const TaxReportLists = () => {
       let table;
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           const st_Date = new Date(startDate);
           const en_Date = new Date(endDate);
           let total_tax_in  = 0;

@@ -365,7 +365,7 @@ const StockManageList = () => {
         }));
       loadJQueryAndDataTables()
         .then(($) => {
-           // window.$ = window.jQuery = $;
+           window.$ = window.jQuery = $;
           fetch('https://secondsweb.com/inv_stock_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.stock_data.length; i++) {
@@ -434,21 +434,21 @@ const StockManageList = () => {
 
 
   const handleDownload = (e) => {
-    // var type = rowType;
-    // fetch('https://secondsweb.com/generatePrd_pdf/'+v_Inv_Id+'/'+type+'/'+localStorage.getItem('id'))
-    // .then(resp => resp.blob())
-    // .then(blob => {
-    //   const url = window.URL.createObjectURL(blob);
-    //   var partyname =  v_Inv_Num.toString().trim() +"_"+ v_Inv_Cus_Name.toString().trim();
-    //   const a = document.createElement('a');
-    //   a.style.display = 'none';
-    //   a.href = url;
-    //   a.download = partyname.toString().replace(" ","_") + '_'+type+'_Invoice.pdf';
-    //   document.body.appendChild(a);
-    //   a.click();
-    // })
-    // .catch(() => 
-    // console.log("error"));
+    var type = rowType;
+    fetch('https://secondsweb.com/generatePrd_pdf/'+v_Inv_Id+'/'+type+'/'+localStorage.getItem('id'))
+    .then(resp => resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      var partyname =  v_Inv_Num.toString().trim() +"_"+ v_Inv_Cus_Name.toString().trim();
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = partyname.toString().replace(" ","_") + '_'+type+'_Invoice.pdf';
+      document.body.appendChild(a);
+      a.click();
+    })
+    .catch(() => 
+    console.log("error"));
   }
     const handleBack = (e) => {
       e.preventDefault();
