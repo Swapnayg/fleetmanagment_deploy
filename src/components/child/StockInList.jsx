@@ -26,7 +26,7 @@ const StockInList = () => {
     {
       if($("#btcncatsubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_category_values', { 
+        fetch('https://secondsweb.com/add_category_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -42,7 +42,7 @@ const StockInList = () => {
       }
       else if($("#btcncatsubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_catgeory_setup', { 
+            fetch('https://secondsweb.com/update_catgeory_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -73,7 +73,7 @@ const StockInList = () => {
       $('#cat_table').DataTable().destroy();
     }
     $('#cat_table tbody').empty();
-    fetch('http://35.154.229.254/category_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/category_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -108,7 +108,7 @@ const StockInList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('http://35.154.229.254/category_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://secondsweb.com/category_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -126,7 +126,7 @@ const StockInList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/category_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/category_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

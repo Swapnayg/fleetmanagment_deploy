@@ -116,7 +116,7 @@ const ManifestOilEntryForm = () => {
       }
        if($("#btcnoilsubmit").text().trim() == "Save")
       {
-      fetch('http://35.154.229.254/add_manifest_oils', { 
+      fetch('https://secondsweb.com/add_manifest_oils', { 
         method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 
@@ -132,7 +132,7 @@ const ManifestOilEntryForm = () => {
     }
     else if($("#btcnoilsubmit").text().trim() == "Update")
     {
-      fetch('http://35.154.229.254/update_manifest_oils_setup', { 
+      fetch('https://secondsweb.com/update_manifest_oils_setup', { 
         method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 
@@ -156,7 +156,7 @@ const ManifestOilEntryForm = () => {
               $('#mani_oils_table').DataTable().destroy();
             }
             $('#mani_oils_table tbody').empty();
-            fetch('http://35.154.229.254/mainifest_oils_data'+'/'+localStorage.getItem('id')).then((res) =>
+            fetch('https://secondsweb.com/mainifest_oils_data'+'/'+localStorage.getItem('id')).then((res) =>
               res.json().then((jsdata) => {
                for (let i = 0; i < jsdata.length; i++) {
                 let row = '<tr>';
@@ -458,7 +458,7 @@ function handleChange4(e) {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setOGBiltyId(row_id);
-        fetch('http://35.154.229.254/manifest_oils_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://secondsweb.com/manifest_oils_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({})
@@ -472,12 +472,12 @@ function handleChange4(e) {
       });
       });
 
-      fetch('http://35.154.229.254/get_oil_billNo' +'/'+localStorage.getItem('id') ).then((res) =>
+      fetch('https://secondsweb.com/get_oil_billNo' +'/'+localStorage.getItem('id') ).then((res) =>
         res.json().then((jsprovdata) => {
         setOBiltyNo("OIL_" + pad(parseInt(jsprovdata.data), 3) );
       }
     ));
-    fetch('http://35.154.229.254/party_data' +'/'+localStorage.getItem('id') ).then((res) =>
+    fetch('https://secondsweb.com/party_data' +'/'+localStorage.getItem('id') ).then((res) =>
       res.json().then((data_party) => {
         $("#oils_party_1").empty();
         $("#oils_party_1").append("<option value=''>Select Party</option>");
@@ -488,7 +488,7 @@ function handleChange4(e) {
             }
         }
     }));
-    fetch('http://35.154.229.254/vehicle_data' +'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/vehicle_data' +'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((data_vehicle) => {
         $("#oils_vehicle").empty();
         $("#oils_vehicle").append("<option value=''>Select Vehicle</option>");
@@ -503,7 +503,7 @@ function handleChange4(e) {
     loadJQueryAndDataTables()
       .then(($) => {
        // window.$ = window.jQuery = $;
-      fetch('http://35.154.229.254/mainifest_oils_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/mainifest_oils_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsdata) => {
           for (let i = 0; i < jsdata.length; i++) {
             let row = '<tr>';

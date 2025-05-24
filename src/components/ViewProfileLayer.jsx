@@ -54,7 +54,7 @@ const ViewProfileLayer = () => {
     e.preventDefault();
     if(canSubmit)
     {
-        fetch('http://35.154.229.254/update_user_profile', { 
+        fetch('https://secondsweb.com/update_user_profile', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -72,7 +72,7 @@ const ViewProfileLayer = () => {
   function refreshtable()
   {
     handleReset();
-    fetch('http://35.154.229.254/get_user', { 
+    fetch('https://secondsweb.com/get_user', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -106,7 +106,7 @@ const ViewProfileLayer = () => {
     {
       if(u_password.toString().trim() == u_confpassword.toString().trim())
       {
-        fetch('http://35.154.229.254/change_Password', { 
+        fetch('https://secondsweb.com/change_Password', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -153,7 +153,7 @@ const ViewProfileLayer = () => {
     if (username) {
       setId(localStorage.getItem('id'));
       setuserName(localStorage.getItem('username').toString().toUpperCase());
-      fetch('http://35.154.229.254/get_user', { 
+      fetch('https://secondsweb.com/get_user', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

@@ -46,7 +46,7 @@ const NewOrderList = () => {
   const [selectList, setselectList] = useState();
 
   const loadOptions = (inputValue) =>{
-    return fetch("http://35.154.229.254/supplier_select",{
+    return fetch("https://secondsweb.com/supplier_select",{
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -72,7 +72,7 @@ const NewOrderList = () => {
   const handleChange = (option) => {
     setSelectedOption(option);
     var sel_value = option.value.toString().trim();
-    fetch("http://35.154.229.254/supplier_details", {
+    fetch("https://secondsweb.com/supplier_details", {
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -291,7 +291,7 @@ const NewOrderList = () => {
   if(Warehouse != 0) 
   {
     let rows = '';
-    fetch('http://35.154.229.254/product_data', { 
+    fetch('https://secondsweb.com/product_data', { 
       method: 'POST', 
       headers: { 'Content-Type': 'application/json', }, 
       body: JSON.stringify({warehouse_id: Warehouse, userid:localStorage.getItem('id')})}).then(res => {
@@ -495,7 +495,7 @@ const NewOrderList = () => {
           ord_items.push({"product":product.toString().trim(),"name":name.toString().trim(),"qty":qty.toString().trim(),"rate":rate.toString().trim(),"item_tax":item_tax.toString().trim(),"tax_amt":tax_amt.toString().trim(),"item_discount":item_discount.toString().trim(),"dis_amt":dis_amt.toString().trim(),"total_amt":total_amt.toString().trim(),"invoice_num":invoice_num.toString().trim(),"description":description.toString().trim()})
        });
 
-        fetch('http://35.154.229.254/add_purchase_order_values', { 
+        fetch('https://secondsweb.com/add_purchase_order_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -605,12 +605,12 @@ const handleDiscountChange = (e) => {
           });
 
         let table;
-        fetch('http://35.154.229.254/get_order_invNo'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://secondsweb.com/get_order_invNo'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsprovdata) => {
             setOInvoiceNo("ORD_" + pad(parseInt(jsprovdata.data), 4) );
           }
         )); 
-        fetch('http://35.154.229.254/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((data_party) => {
           $("#order_ware").empty();
           $("#order_ware").append("<option value=''>Select Warehouse</option>");

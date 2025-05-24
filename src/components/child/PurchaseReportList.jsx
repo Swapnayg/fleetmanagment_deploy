@@ -41,7 +41,7 @@ const PurchaseReportList = () => {
     // var cust_Name = "Purchase Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generatePurchaseReport_pdf', { 
+    // fetch('https://secondsweb.com/generatePurchaseReport_pdf', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -102,7 +102,7 @@ const PurchaseReportList = () => {
       $('#tbl_sale_rpt').DataTable().destroy();
     }
     $('#tbl_sale_rpt tbody').empty();
-    fetch("http://35.154.229.254/get_purchase_report_data", { 
+    fetch("https://secondsweb.com/get_purchase_report_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -134,7 +134,7 @@ const PurchaseReportList = () => {
            // window.$ = window.jQuery = $;
           const st_Date = new Date(startDate);
           const en_Date = new Date(endDate);
-          fetch("http://35.154.229.254/get_purchase_report_data", { 
+          fetch("https://secondsweb.com/get_purchase_report_data", { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 

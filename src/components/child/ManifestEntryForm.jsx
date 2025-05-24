@@ -114,7 +114,7 @@ const ManifestEntryForm = () => {
           }
           if($("#btcngoodssubmit").text().trim() == "Save")
           {
-          fetch('http://35.154.229.254/add_manifest_goods', { 
+          fetch('https://secondsweb.com/add_manifest_goods', { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 
@@ -130,7 +130,7 @@ const ManifestEntryForm = () => {
         }
         else if($("#btcngoodssubmit").text().trim() == "Update")
         {
-          fetch('http://35.154.229.254/update_manifest_goods_setup', { 
+          fetch('https://secondsweb.com/update_manifest_goods_setup', { 
             method: 'POST', 
             headers:{   'Accept': 'application/json',
               'Content-Type': 'application/json'  },
@@ -163,7 +163,7 @@ const ManifestEntryForm = () => {
             $('#mani_goods_table').DataTable().destroy();
           }
           $('#mani_goods_table tbody').empty();
-          fetch('http://35.154.229.254/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
              for (let i = 0; i < jsdata.length; i++) {
               var data_obj = JSON.stringify(jsdata[i], null, 2);
@@ -258,7 +258,7 @@ const ManifestEntryForm = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setGBiltyId(row_id);
-        fetch('http://35.154.229.254/manifest_goods_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://secondsweb.com/manifest_goods_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({})
@@ -271,12 +271,12 @@ const ManifestEntryForm = () => {
           }
       });
       });
-      fetch('http://35.154.229.254/get_goods_billNo'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/get_goods_billNo'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
           setBiltyNo("GD_" + pad(parseInt(jsprovdata.data), 3) );
         }
       ));
-      fetch('http://35.154.229.254/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_party) => {
           $("#goods_party_1").empty();
           $("#goods_party_1").append("<option value=''>Select Party</option>");
@@ -287,7 +287,7 @@ const ManifestEntryForm = () => {
             }
           }
       }));
-      fetch('http://35.154.229.254/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_vehicle) => {
           $("#goods_vehicle").empty();
           $("#goods_vehicle").append("<option value=''>Select Vehicle</option>");
@@ -303,7 +303,7 @@ const ManifestEntryForm = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               var data_obj = JSON.stringify(jsdata[i], null, 2) ;

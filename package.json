@@ -2,7 +2,7 @@
   "name": "wowdash-nextjs",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://35.154.229.254/",
+  "proxy": "https://secondsweb.com/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -42,7 +42,7 @@ const BankStatementLists = () => {
     // var cust_Name = "Bank Statement Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateBankStaReport_pdf', { 
+    // fetch('https://secondsweb.com/generateBankStaReport_pdf', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -103,7 +103,7 @@ const BankStatementLists = () => {
       $('#tbl_sale_rpt').DataTable().destroy();
     }
     $('#tbl_sale_rpt tbody').empty();
-    fetch("http://35.154.229.254/get_bank_stat_report_data", { 
+    fetch("https://secondsweb.com/get_bank_stat_report_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -138,7 +138,7 @@ const BankStatementLists = () => {
          // window.$ = window.jQuery = $;
         const st_Date = new Date(startDate);
         const en_Date = new Date(endDate);
-        fetch("http://35.154.229.254/get_bank_stat_report_data", { 
+        fetch("https://secondsweb.com/get_bank_stat_report_data", { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

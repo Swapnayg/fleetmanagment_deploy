@@ -39,7 +39,7 @@ const ManageProfitLossList = () => {
     // var cust_Name = "Profit Loss Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateProfit_Loss_pdf', { 
+    // fetch('https://secondsweb.com/generateProfit_Loss_pdf', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -64,7 +64,7 @@ const ManageProfitLossList = () => {
     // var cust_Name = "Profit Loss Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateProfit_Loss_Excel', { 
+    // fetch('https://secondsweb.com/generateProfit_Loss_Excel', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -95,7 +95,7 @@ function addDays(date, days) {
   {
     const st_Date = new Date(st_date);
     const en_Date = new Date(en_date);
-    fetch("http://35.154.229.254/get_profit_loss_details", { 
+    fetch("https://secondsweb.com/get_profit_loss_details", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 

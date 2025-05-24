@@ -20,7 +20,7 @@ const SignInLayer = () => {
     e.preventDefault();
     if(canSubmit)
     {
-      fetch('http://35.154.229.254/login', { 
+      fetch('https://secondsweb.com/login', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

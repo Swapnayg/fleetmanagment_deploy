@@ -44,7 +44,7 @@ const AllTransactionsLists = () => {
     }
     $('#table_cashbook tbody').empty();
     setselType(e.target.value.toString().trim());
-    fetch("http://35.154.229.254/cashbook_data_report",{ 
+    fetch("https://secondsweb.com/cashbook_data_report",{ 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -127,7 +127,7 @@ const AllTransactionsLists = () => {
     // var cust_Name = "ALL TRANSACTIONS Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateAllTransReport_pdf', { 
+    // fetch('https://secondsweb.com/generateAllTransReport_pdf', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -189,7 +189,7 @@ const AllTransactionsLists = () => {
       $('#table_cashbook').DataTable().destroy();
     }
     $('#table_cashbook tbody').empty();
-    fetch("http://35.154.229.254/cashbook_data_report",{ 
+    fetch("https://secondsweb.com/cashbook_data_report",{ 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -235,7 +235,7 @@ const AllTransactionsLists = () => {
          // window.$ = window.jQuery = $;
         const st_Date = new Date(startDate);
         const en_Date = new Date(endDate);
-        fetch("http://35.154.229.254/cashbook_data_report",{ 
+        fetch("https://secondsweb.com/cashbook_data_report",{ 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

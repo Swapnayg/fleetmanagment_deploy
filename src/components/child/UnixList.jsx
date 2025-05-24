@@ -26,7 +26,7 @@ const UnixList = () => {
     {
       if($("#btnunitsubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_unit_values', { 
+        fetch('https://secondsweb.com/add_unit_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -42,7 +42,7 @@ const UnixList = () => {
       }
       else if($("#btnunitsubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_unit_setup', { 
+            fetch('https://secondsweb.com/update_unit_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -73,7 +73,7 @@ const UnixList = () => {
       $('#unit_table').DataTable().destroy();
     }
     $('#unit_table tbody').empty();
-    fetch('http://35.154.229.254/unit_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/unit_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -108,7 +108,7 @@ const UnixList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('http://35.154.229.254/unit_setup_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://secondsweb.com/unit_setup_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -126,7 +126,7 @@ const UnixList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/unit_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/unit_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

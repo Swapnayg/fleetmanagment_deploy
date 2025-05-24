@@ -27,7 +27,7 @@ const GoodPartyLists = () => {
 
 const handlePrint = (e) => {
   var party_type = 'party';
-  fetch('http://35.154.229.254/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+  fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
   .then(resp => resp.blob())
   .then(blob => {
     const url = window.URL.createObjectURL(blob);
@@ -89,7 +89,7 @@ const handleBack = (e) => {
       const btn_elm = document.getElementById('btnpartysubmit');
       if(btn_elm.textContent.toString().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_party', { 
+        fetch('https://secondsweb.com/add_party', { 
           method: 'POST', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({userid:localStorage.getItem('id'),party: partyName, p_type: 'goods', p_contactPerson: contactPerson, p_phoneNo: phoneNo})
@@ -116,7 +116,7 @@ const handleBack = (e) => {
       }
       else if(btn_elm.textContent.toString().trim() == "Update")
       {
-          fetch('http://35.154.229.254/update_party', { 
+          fetch('https://secondsweb.com/update_party', { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json', }, 
             body: JSON.stringify({userid:localStorage.getItem('id'),party_id:partyId, party: partyName,p_type: 'goods', p_contactPerson: contactPerson, p_phoneNo: phoneNo})

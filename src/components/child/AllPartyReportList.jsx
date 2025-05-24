@@ -28,7 +28,7 @@ const AllPartyReportList = () => {
       $('#table_all_party').DataTable().destroy();
     }
     $('#table_all_party tbody').empty();
-    fetch("http://35.154.229.254/get_all_party_report_data", { 
+    fetch("https://secondsweb.com/get_all_party_report_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -84,7 +84,7 @@ const AllPartyReportList = () => {
   }
    const handlePrint = (e) => {
     //  var cust_Name = "All Party Report";
-    //  fetch('http://35.154.229.254/generateAllPartyReport_pdf', { 
+    //  fetch('https://secondsweb.com/generateAllPartyReport_pdf', { 
     //    method: 'POST', 
     //       headers: {   'Accept': 'application/json',
     //         'Content-Type': 'application/json'  }, 
@@ -137,7 +137,7 @@ const AllPartyReportList = () => {
         loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch("http://35.154.229.254/get_all_party_report_data", { 
+          fetch("https://secondsweb.com/get_all_party_report_data", { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 

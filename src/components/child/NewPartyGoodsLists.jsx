@@ -46,7 +46,7 @@ const NewPartyGoodsLists = () => {
     e.preventDefault();
     if(canSubmit)
     {
-      fetch('http://35.154.229.254/add_party_bill', { 
+      fetch('https://secondsweb.com/add_party_bill', { 
         method: 'POST', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({userid:localStorage.getItem('id'), pb_invoiceNo:invoiceNo, pb_issueDate: issueDate, pb_dueDate: dueDate, pb_partyid: partyid, pb_invoiceParty: invoiceParty, pb_salesName: salesName, pb_thankMssg:thankMssg, pb_subTotal: subTotal,pb_select_bilty:selectList.toString().trim(),pb_status:"posted" , pb_type:"goods"})
@@ -75,7 +75,7 @@ const NewPartyGoodsLists = () => {
     if(invoiceParty != 0) 
     {
       let rows = '';
-      fetch('http://35.154.229.254/mainifest_good_data', { 
+      fetch('https://secondsweb.com/mainifest_good_data', { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json', }, 
         body: JSON.stringify({party_id: partyid, userid:localStorage.getItem('id')})
@@ -274,13 +274,13 @@ const NewPartyGoodsLists = () => {
         $("#AddItemTbl .tbl_check").prop("checked", !clicked);
         clicked = !clicked;
       });
-      fetch('http://35.154.229.254/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
           setinvoiceNo("PBG" + pad(parseInt(jsprovdata.data), 4));
         }
       ));
 
-       fetch('http://35.154.229.254/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+       fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_party) => {
         $("#party_bill").empty();
         $("#party_bill").append("<option value=''>Select Party</option>");

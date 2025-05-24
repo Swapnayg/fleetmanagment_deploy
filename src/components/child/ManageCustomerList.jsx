@@ -83,7 +83,7 @@ const ManageCustomerList = () => {
 
 const handlePrint = (e) => {
   // var party_type = 'client';
-  // fetch('http://35.154.229.254/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+  // fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
   // .then(resp => resp.blob())
   // .then(blob => {
   //   const url = window.URL.createObjectURL(blob);
@@ -144,7 +144,7 @@ const handleBack = (e) => {
     {
       if($("#btncustmubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_customer_setup', { 
+            fetch('https://secondsweb.com/update_customer_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -198,7 +198,7 @@ const handleBack = (e) => {
       $('#customer_table').DataTable().destroy();
     }
     $('#customer_table tbody').empty();
-    fetch('http://35.154.229.254/customer_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/customer_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -229,7 +229,7 @@ const handleBack = (e) => {
       setleghidden(false);
       setledCustId(row_id);
       setledChartId(chart_id);
-      fetch('http://35.154.229.254/ledger_account_data', { 
+      fetch('https://secondsweb.com/ledger_account_data', { 
         method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 
@@ -359,7 +359,7 @@ const handleBack = (e) => {
       e.preventDefault();
       var row_id = $(this).attr("data-lable");
       setId(row_id);
-      fetch('http://35.154.229.254/customer_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+      fetch('https://secondsweb.com/customer_delete/'+row_id+'/'+localStorage.getItem('id'), { 
         method: 'DELETE', 
         headers:{   'Accept': 'application/json',
                   'Content-Type': 'application/json'  }, 
@@ -376,7 +376,7 @@ const handleBack = (e) => {
     let table;
     $("#client_group").empty();
     //$("#client_group").append("<option value=''>Select Group</option>");
-    fetch('http://35.154.229.254/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsprovdata) => {
       for (let i = 0; i < jsprovdata.length; i++) {
         $("#client_group").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].group_name + "</option>");
@@ -387,7 +387,7 @@ const handleBack = (e) => {
     loadJQueryAndDataTables()
       .then(($) => {
          // window.$ = window.jQuery = $;
-        fetch('http://35.154.229.254/customer_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://secondsweb.com/customer_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsdata) => {
            for (let i = 0; i < jsdata.length; i++) {
             let row = '<tr>';

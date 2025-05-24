@@ -26,7 +26,7 @@ const InwarehouseList = () => {
     {
       if($("#btcninwaresubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_inwarehouse_values', { 
+        fetch('https://secondsweb.com/add_inwarehouse_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -42,7 +42,7 @@ const InwarehouseList = () => {
       }
       else if($("#btcninwaresubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_inwarehouse_setup', { 
+            fetch('https://secondsweb.com/update_inwarehouse_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -74,7 +74,7 @@ const InwarehouseList = () => {
       $('#inware_table').DataTable().destroy();
     }
     $('#inware_table tbody').empty();
-    fetch('http://35.154.229.254/inwarehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/inwarehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -113,7 +113,7 @@ const InwarehouseList = () => {
   $(document).off('click', '.inware_delete').on("click", '.inware_delete', function(e){
     e.preventDefault();
     var row_id = $(this).attr("data-lable");
-    fetch('http://35.154.229.254/inwarehouse_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+    fetch('https://secondsweb.com/inwarehouse_delete/'+row_id+'/'+localStorage.getItem('id'), { 
       method: 'DELETE', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -132,7 +132,7 @@ const InwarehouseList = () => {
   loadJQueryAndDataTables()
       .then(($) => {
          // window.$ = window.jQuery = $;
-        fetch('http://35.154.229.254/inwarehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://secondsweb.com/inwarehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsdata) => {
            for (let i = 0; i < jsdata.length; i++) {
             let row = '<tr>';

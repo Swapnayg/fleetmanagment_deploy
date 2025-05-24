@@ -27,7 +27,7 @@ const WarehousesList = () => {
     {
       if($("#btcnwaresubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_warehouse_values', { 
+        fetch('https://secondsweb.com/add_warehouse_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -43,7 +43,7 @@ const WarehousesList = () => {
       }
       else if($("#btcnwaresubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_warehouse_setup', { 
+            fetch('https://secondsweb.com/update_warehouse_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -74,7 +74,7 @@ const WarehousesList = () => {
       $('#ware_table').DataTable().destroy();
     }
     $('#ware_table tbody').empty();
-    fetch('http://35.154.229.254/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -112,7 +112,7 @@ const WarehousesList = () => {
       $(document).off('click', '.ware_delete').on("click", '.ware_delete', function(e){
           e.preventDefault();
           var row_id = $(this).attr("data-lable");
-          fetch('http://35.154.229.254/warehouse_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+          fetch('https://secondsweb.com/warehouse_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -130,7 +130,7 @@ const WarehousesList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

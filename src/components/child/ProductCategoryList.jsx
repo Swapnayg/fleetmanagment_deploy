@@ -27,7 +27,7 @@ const ProductCategoryList = () => {
     {
       if($("#btncategorysubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_pcategory_values', { 
+        fetch('https://secondsweb.com/add_pcategory_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -43,7 +43,7 @@ const ProductCategoryList = () => {
       }
       else if($("#btncategorysubmit").text().trim() == "Update")
         {
-            fetch('http://35.154.229.254/update_p_category_setup', { 
+            fetch('https://secondsweb.com/update_p_category_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -79,7 +79,7 @@ const ProductCategoryList = () => {
       $('#p_category_table').DataTable().destroy();
     }
     $('#p_category_table tbody').empty();
-    fetch('http://35.154.229.254/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -116,7 +116,7 @@ const ProductCategoryList = () => {
       $(document).off('click', '.p_cat_delete').on("click", '.p_cat_delete', function(e){
           e.preventDefault();
           var row_id = $(this).attr("data-lable");
-          fetch('http://35.154.229.254/p_category_delete/'+row_id +'/'+localStorage.getItem('id'), { 
+          fetch('https://secondsweb.com/p_category_delete/'+row_id +'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -134,7 +134,7 @@ const ProductCategoryList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

@@ -31,7 +31,7 @@ const NewSupplierList = () => {
     {
       if($("#btcsupplsubmit").text().trim() == "Save")
       {
-        fetch('http://35.154.229.254/add_supplier_values', { 
+        fetch('https://secondsweb.com/add_supplier_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

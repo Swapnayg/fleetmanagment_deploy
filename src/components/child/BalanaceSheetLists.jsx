@@ -28,7 +28,7 @@ const BalanaceSheetLists = () => {
     // var cust_Name = "Balance Sheet Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateBalanceSheet_pdf', { 
+    // fetch('https://secondsweb.com/generateBalanceSheet_pdf', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -53,7 +53,7 @@ const BalanaceSheetLists = () => {
     // var cust_Name = "Balance Sheet Report";
     // var f_st_date = moment(startDate).format("D MMMM YYYY");
     // var f_en_date = moment(endDate).format("D MMMM YYYY");
-    // fetch('http://35.154.229.254/generateBalanceSheet_Excel', { 
+    // fetch('https://secondsweb.com/generateBalanceSheet_Excel', { 
     //   method: 'POST', 
     //   headers: {   'Accept': 'application/json',
     //     'Content-Type': 'application/json'  }, 
@@ -83,7 +83,7 @@ function addDays(date, days) {
   {
     const st_Date = new Date(st_date);
     const en_Date = new Date(en_date);
-    fetch("http://35.154.229.254/get_profit_loss_details", { 
+    fetch("https://secondsweb.com/get_profit_loss_details", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 

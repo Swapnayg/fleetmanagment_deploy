@@ -83,7 +83,7 @@ const ManageInvoiceList = () => {
       $('#invoice_table').DataTable().destroy();
     }
     $('#invoice_table tbody').empty();
-    fetch('http://35.154.229.254/inv_invoice_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://secondsweb.com/inv_invoice_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -154,7 +154,7 @@ const ManageInvoiceList = () => {
       setedithidden(false);
         $('#add_item_table tbody').empty();
         var row_id = $(this).attr("data-lable");
-        fetch('http://35.154.229.254/get_inv_invoice_data', { 
+        fetch('https://secondsweb.com/get_inv_invoice_data', { 
           method: 'POST', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({userid:localStorage.getItem('id'), inv_id: row_id})
@@ -216,7 +216,7 @@ const ManageInvoiceList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('http://35.154.229.254/invoice_inv_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://secondsweb.com/invoice_inv_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -265,7 +265,7 @@ const ManageInvoiceList = () => {
         setedithidden(true);
         $('#tbl_view_order tbody').empty();
           var row_id = $(this).attr("data-lable");
-          fetch('http://35.154.229.254/get_inv_invoice_data', { 
+          fetch('https://secondsweb.com/get_inv_invoice_data', { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json', }, 
             body: JSON.stringify({userid:localStorage.getItem('id'), inv_id: row_id})
@@ -305,7 +305,7 @@ const ManageInvoiceList = () => {
         });
     });
       let table;
-      fetch('http://35.154.229.254/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_party) => {
         $("#order_ware").empty();
         $("#order_ware").append("<option value=''>Select Warehouse</option>");
@@ -316,7 +316,7 @@ const ManageInvoiceList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/inv_invoice_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/inv_invoice_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
                   let row = '<tr>';
@@ -361,7 +361,7 @@ const ManageInvoiceList = () => {
 
   const handleDownload = (e) => {
     // var type = "invoice";
-    // fetch('http://35.154.229.254/generatePrd_pdf/'+v_Inv_Id+'/'+type+'/'+localStorage.getItem('id'))
+    // fetch('https://secondsweb.com/generatePrd_pdf/'+v_Inv_Id+'/'+type+'/'+localStorage.getItem('id'))
     // .then(resp => resp.blob())
     // .then(blob => {
     //   const url = window.URL.createObjectURL(blob);
@@ -582,7 +582,7 @@ const ManageInvoiceList = () => {
  
   const handleAddItem = (e) => {
     let rows = '';
-    fetch('http://35.154.229.254/product_data'+'/'+localStorage.getItem('id')).then(res => {
+    fetch('https://secondsweb.com/product_data'+'/'+localStorage.getItem('id')).then(res => {
         return res.json();
       }).then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -773,7 +773,7 @@ const ManageInvoiceList = () => {
           ord_items.push({"product":product.toString().trim(),"name":name.toString().trim(),"qty":qty.toString().trim(),"rate":rate.toString().trim(),"item_tax":item_tax.toString().trim(),"tax_amt":tax_amt.toString().trim(),"item_discount":item_discount.toString().trim(),"dis_amt":dis_amt.toString().trim(),"total_amt":total_amt.toString().trim(),"invoice_num":invoice_num.toString().trim(),"description":description.toString().trim()})
        });
 
-        fetch('http://35.154.229.254/update_invoice_values', { 
+        fetch('https://secondsweb.com/update_invoice_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

@@ -23,7 +23,7 @@ const ManifestGoodsReport = () => {
 
    const handlePrint = (e) => {
     //  var cust_Name = "Manifest Goods Report";
-    //  fetch('http://35.154.229.254/generateManifestReport_pdf', { 
+    //  fetch('https://secondsweb.com/generateManifestReport_pdf', { 
     //    method: 'POST', 
     //       headers: {   'Accept': 'application/json',
     //         'Content-Type': 'application/json'  }, 
@@ -76,7 +76,7 @@ const ManifestGoodsReport = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            // window.$ = window.jQuery = $;
-          fetch('http://35.154.229.254/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               let freight_amt = 0;
               let comm_amt = 0;

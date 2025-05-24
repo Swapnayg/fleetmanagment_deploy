@@ -19,7 +19,7 @@ const MasterLayout = ({ children }) => {
 
 const handleLogOut = (e) => {
   e.preventDefault();
-  fetch('http://35.154.229.254/logout').then(res => {
+  fetch('https://secondsweb.com/logout').then(res => {
       return res.json();
     }).then(data => {
       localStorage.clear();
@@ -28,7 +28,7 @@ const handleLogOut = (e) => {
 }
 
   useEffect(() => {
-    const response =  fetch("http://35.154.229.254/search_select",{
+    const response =  fetch("https://secondsweb.com/search_select",{
           method: 'POST', 
           headers:{ 'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -47,7 +47,7 @@ const handleLogOut = (e) => {
         }); 
         setsuggestions(formattedoptions);
       }));
-    fetch('http://35.154.229.254/get_user', { 
+    fetch('https://secondsweb.com/get_user', { 
       method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 
