@@ -1,0 +1,22 @@
+https://ap-south-1.console.aws.amazon.com/ec2-instance-connect/ssh/home?region=ap-south-1&connType=standard&instanceId=i-02b0ec443350ba3c4&osUser=ubuntu&sshPort=22&addressFamily=ipv4
+
+mjjykoksara@gmail.com
+Mjjy@kld1
+
+psql --host database-1.ctogk8s4eyyp.ap-south-1.rds.amazonaws.com --port 5432 --username postgres --password
+
+Ajax24x7#365
+
+I am user details
+
+https://372108846984.signin.aws.amazon.com/console
+postgres
+Ajax24x7#365
+
+
+sudo systemctl daemon-reload
+sudo systemctl restart flask-app
+sudo systemctl start nginx
+sudo systemctl restart nginx
+sudo systemctl status nginx
+sudo systemctl status flask-app
