@@ -52,7 +52,7 @@ const CashBookDataTable = () => {
         $('#table_cashbook').DataTable().destroy();
       }
       $('#table_cashbook tbody').empty();
-      fetch('http://35.154.229.254/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsdata) => {
           if(e.target.value.toString().trim()  =="general" || e.target.value.toString().trim()  =="commission" || e.target.value.toString().trim()  =="party"|| e.target.value.toString().trim()  =="vehicle")
           {
@@ -150,7 +150,7 @@ const CashBookDataTable = () => {
         setHidden(false);
         $("#bill_number").empty();
         $("#bill_number").append("<option value=''>Select Bill</option>");
-        fetch("http://35.154.229.254/COA_data_bill", {
+        fetch("https://secondsweb.com/COA_data_bill", {
           method: 'POST', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -170,7 +170,7 @@ const CashBookDataTable = () => {
 
     
     const loadOptions = (inputValue) =>{
-      return fetch("http://35.154.229.254/COA_data_select",{
+      return fetch("https://secondsweb.com/COA_data_select",{
         method: 'POST', 
         headers:{   'Accept': 'application/json',
                   'Content-Type': 'application/json'  }, 
@@ -214,7 +214,7 @@ const CashBookDataTable = () => {
         {
           debit_amnt = amount;
         }
-        fetch('http://35.154.229.254/add_cashbook_values', { 
+        fetch('https://secondsweb.com/add_cashbook_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -248,7 +248,7 @@ const CashBookDataTable = () => {
         var row_id = $(this).attr("data-lable");
         var row_type = $(this).attr("data-type");
         console.log(bill_text)
-          fetch('http://35.154.229.254/update_cashbook_values', { 
+          fetch('https://secondsweb.com/update_cashbook_values', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -290,7 +290,7 @@ const CashBookDataTable = () => {
             $('#table_cashbook').DataTable().destroy();
           }
           $('#table_cashbook tbody').empty();
-          fetch('http://35.154.229.254/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                 if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")
@@ -336,7 +336,7 @@ const CashBookDataTable = () => {
             $('#table_cashbook').DataTable().destroy();
           }
           $('#table_cashbook tbody').empty();
-          fetch('http://35.154.229.254/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                 if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")
@@ -387,75 +387,75 @@ const CashBookDataTable = () => {
           var username = localStorage.getItem('username');
           if (username) {
             $(document).on("click", '.cash_sub_edit', function(e){
-        e.preventDefault();
-        var row_id = $(this).attr("data-lable");
-        var row_type = $(this).attr("data-type");
-        setrowType(row_type);
-        $("#btncashsubmit").text("Update");
-          var t_row =  $(this).closest('tr').index();
-          var array_list =  JSON.parse($("#table_cashbook tbody tr:eq("+t_row+") td:eq(7)").find('span').text());
-          $("#edit_id").val(row_id);
-          setId(row_id);
-          setrowIndex(t_row);
-          const my_date = new Date(array_list.ledger_gen_date.toString().trim());
-          const sel_val = array_list.ledger_account_no.toString().trim() + "_Type_" + array_list.ledger_type.toString().trim();
-          setSelectedOption({"label": array_list.ledger_account_name.toString().trim(),"value": sel_val});
-          $("#select_party").addClass('disabledDiv');
-          $("#select_Type").addClass('disabledDiv');
-          setcashbookDate(my_date);
-          var account_type = "";
-          var accnt_amt = "";
-          if(parseInt(array_list.ledger_credit_amount.toString().trim()) == 0)
-          {
-            account_type = "out";
-          }
-          else if(parseInt(array_list.ledger_debit_amount.toString().trim()) == 0)
-          {
-            account_type = "in";
-          }
-          if(array_list.ledger_debit_amount.toString().trim() != 0)
-          {
-            accnt_amt = array_list.ledger_debit_amount.toString().trim();
-          }
-          else if(array_list.ledger_credit_amount.toString().trim() != 0)
-          {
-            accnt_amt = array_list.ledger_credit_amount.toString().trim();
-          }
-          setacc_Type(account_type);
-          setacc_Method(array_list.ledger_method.toString().trim() );
-          setDescription(array_list.ledger_descp.toString().trim() );
-          setAmount(accnt_amt);
-          setbill_no(array_list.ledger_bill.toString().trim());
-          setbill_text(array_list.ledger_bill.toString().trim());
-          setInputValue("");   
-          setHidden(true);
+              e.preventDefault();
+              var row_id = $(this).attr("data-lable");
+              var row_type = $(this).attr("data-type");
+              setrowType(row_type);
+              $("#btncashsubmit").text("Update");
+                var t_row =  $(this).closest('tr').index();
+                var array_list =  JSON.parse($("#table_cashbook tbody tr:eq("+t_row+") td:eq(7)").find('span').text());
+                $("#edit_id").val(row_id);
+                setId(row_id);
+                setrowIndex(t_row);
+                const my_date = new Date(array_list.ledger_gen_date.toString().trim());
+                const sel_val = array_list.ledger_account_no.toString().trim() + "_Type_" + array_list.ledger_type.toString().trim();
+                setSelectedOption({"label": array_list.ledger_account_name.toString().trim(),"value": sel_val});
+                $("#select_party").addClass('disabledDiv');
+                $("#select_Type").addClass('disabledDiv');
+                setcashbookDate(my_date);
+                var account_type = "";
+                var accnt_amt = "";
+                if(parseInt(array_list.ledger_credit_amount.toString().trim()) == 0)
+                {
+                  account_type = "out";
+                }
+                else if(parseInt(array_list.ledger_debit_amount.toString().trim()) == 0)
+                {
+                  account_type = "in";
+                }
+                if(array_list.ledger_debit_amount.toString().trim() != 0)
+                {
+                  accnt_amt = array_list.ledger_debit_amount.toString().trim();
+                }
+                else if(array_list.ledger_credit_amount.toString().trim() != 0)
+                {
+                  accnt_amt = array_list.ledger_credit_amount.toString().trim();
+                }
+                setacc_Type(account_type);
+                setacc_Method(array_list.ledger_method.toString().trim() );
+                setDescription(array_list.ledger_descp.toString().trim() );
+                setAmount(accnt_amt);
+                setbill_no(array_list.ledger_bill.toString().trim());
+                setbill_text(array_list.ledger_bill.toString().trim());
+                setInputValue("");   
+                setHidden(true);
+          });
+          $(document).off('click', '.cash_sub_delete').on("click", '.cash_sub_delete', function(e){
+            e.preventDefault();
+            var row_id = $(this).attr("data-lable");
+            var row_type = $(this).attr("data-type");
+            var t_row =  $(this).closest('tr').index();
+            setId(row_id);
+            var array_list =  JSON.parse($("#table_cashbook tbody tr:eq("+t_row+") td:eq(7)").find('span').text());
+            fetch('https://secondsweb.com/cashbook_delete', { 
+              method: 'POST', 
+              headers:{   'Accept': 'application/json',
+                        'Content-Type': 'application/json'  }, 
+              body: JSON.stringify({userid:localStorage.getItem('id'),ac_cashId:row_id,ac_cash_type: array_list.ledger_type.toString().trim(),ac_cash_accnt_no: array_list.ledger_account_no.toString().trim(), led_Type:row_type})
+            }).then(res => {
+              return res.json();
+            }).then(data => {
+              if(data.data == "deleted")
+              {
+                refreshtable("");
+              }
+          });
         });
-        $(document).off('click', '.cash_sub_delete').on("click", '.cash_sub_delete', function(e){
-          e.preventDefault();
-          var row_id = $(this).attr("data-lable");
-          var row_type = $(this).attr("data-type");
-          var t_row =  $(this).closest('tr').index();
-          setId(row_id);
-          var array_list =  JSON.parse($("#table_cashbook tbody tr:eq("+t_row+") td:eq(7)").find('span').text());
-          fetch('http://35.154.229.254/cashbook_delete', { 
-            method: 'POST', 
-            headers:{   'Accept': 'application/json',
-                      'Content-Type': 'application/json'  }, 
-            body: JSON.stringify({userid:localStorage.getItem('id'),ac_cashId:row_id,ac_cash_type: array_list.ledger_type.toString().trim(),ac_cash_accnt_no: array_list.ledger_account_no.toString().trim(), led_Type:row_type})
-          }).then(res => {
-            return res.json();
-          }).then(data => {
-            if(data.data == "deleted")
-            {
-              refreshtable("");
-            }
-        });
-      });
             let table;   
             loadJQueryAndDataTables()
               .then(($) => {
                 window.$ = window.jQuery = $;
-                fetch('http://35.154.229.254/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+                fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
                   res.json().then((jsdata) => {
                     for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                       if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")
