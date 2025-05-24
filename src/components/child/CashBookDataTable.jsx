@@ -8,6 +8,7 @@ const loadJQueryAndDataTables = async () => {
   await import("datatables.net-dt/js/dataTables.dataTables.js");
   return $;
 };
+import moment from 'moment';
 import AsyncSelect from 'react-select/async';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
