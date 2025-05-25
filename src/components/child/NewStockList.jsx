@@ -55,7 +55,7 @@ const NewStockList = () => {
   const [rowNo, setrowNo] = useState(0); 
   const [selectList, setselectList] = useState();
 
-  const canSubmit =  $("#add_item_table tbody tr").length > 0 && Warehouse != '' && ORefNo.length > 0  && ORefNo.length > 0;
+  const canSubmit =   Warehouse != '' && $("#add_item_table tbody tr").length > 0 && ORefNo.length > 0  && ORefNo.length > 0;
   
   const handleChangeType = (e) => {
     setrtnType(e.target.value);

@@ -355,7 +355,7 @@ const ManageQuoteList = () => {
   };
 
 
-  const canSubmit =  $("#add_item_table tbody tr").length > 0 && ORefNo.length > 0;
+  const canSubmit = ORefNo.length > 0;
   
   function refreshDropValues(taxvalue)
   {
