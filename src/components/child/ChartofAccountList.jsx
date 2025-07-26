@@ -38,7 +38,7 @@ const ChartofAccountList = () => {
 
     const handlePrint = (e) => {
       var party_type = l_charttype;
-      fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+      fetch('https://backend-55jj.onrender.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
       .then(resp => resp.blob())
       .then(blob => {
         const url = window.URL.createObjectURL(blob);
@@ -104,7 +104,7 @@ const ChartofAccountList = () => {
     {
       if($("#btcaccntsubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_chart_of_account_values', { 
+        fetch('https://backend-55jj.onrender.com/add_chart_of_account_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -132,7 +132,7 @@ const ChartofAccountList = () => {
       }
       else if($("#btcaccntsubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_chart_of_account_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_chart_of_account_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -166,7 +166,7 @@ const ChartofAccountList = () => {
       $('#accnt_table').DataTable().destroy();
     }
     $('#accnt_table tbody').empty();
-    fetch('https://secondsweb.com/chart_of_account_data' +'/'+localStorage.getItem('id') ).then((res) =>
+    fetch('https://backend-55jj.onrender.com/chart_of_account_data' +'/'+localStorage.getItem('id') ).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
           if(jsdata[i].account_mode.toString().trim() == "general" || jsdata[i].account_mode.toString().trim() == "commission")
@@ -204,7 +204,7 @@ const ChartofAccountList = () => {
         let table;
         $("#chart_main_accnt").empty();
               $("#chart_main_accnt").append("<option value=''>Select Account</option>");
-                fetch('https://secondsweb.com/chart_accnt_type_data'+'/'+localStorage.getItem('id')).then((res) =>
+                fetch('https://backend-55jj.onrender.com/chart_accnt_type_data'+'/'+localStorage.getItem('id')).then((res) =>
                   res.json().then((jsprovdata) => {
                     let sel_string = '';
                     for (let i = 0; i < jsprovdata.length; i++) {
@@ -228,7 +228,7 @@ const ChartofAccountList = () => {
         setHiddenmain(true);
         setledPartId(row_id);
         setledParChatId(chart_id);
-        fetch('https://secondsweb.com/ledger_account_data', { 
+        fetch('https://backend-55jj.onrender.com/ledger_account_data', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -288,7 +288,7 @@ const ChartofAccountList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('https://secondsweb.com/chart_of_accnt_delete/'+row_id +'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/chart_of_accnt_delete/'+row_id +'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -305,7 +305,7 @@ const ChartofAccountList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/chart_of_account_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/chart_of_account_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               console.log(jsdata);
             for (let i = 0; i < jsdata.length; i++) {

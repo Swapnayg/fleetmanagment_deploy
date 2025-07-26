@@ -52,7 +52,7 @@ const CashBookDataTable = () => {
         $('#table_cashbook').DataTable().destroy();
       }
       $('#table_cashbook tbody').empty();
-      fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsdata) => {
           if(e.target.value.toString().trim()  =="general" || e.target.value.toString().trim()  =="commission" || e.target.value.toString().trim()  =="party"|| e.target.value.toString().trim()  =="vehicle")
           {
@@ -150,7 +150,7 @@ const CashBookDataTable = () => {
         setHidden(false);
         $("#bill_number").empty();
         $("#bill_number").append("<option value=''>Select Bill</option>");
-        fetch("https://secondsweb.com/COA_data_bill", {
+        fetch("https://backend-55jj.onrender.com/COA_data_bill", {
           method: 'POST', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -170,7 +170,7 @@ const CashBookDataTable = () => {
 
     
     const loadOptions = (inputValue) =>{
-      return fetch("https://secondsweb.com/COA_data_select",{
+      return fetch("https://backend-55jj.onrender.com/COA_data_select",{
         method: 'POST', 
         headers:{   'Accept': 'application/json',
                   'Content-Type': 'application/json'  }, 
@@ -214,7 +214,7 @@ const CashBookDataTable = () => {
         {
           debit_amnt = amount;
         }
-        fetch('https://secondsweb.com/add_cashbook_values', { 
+        fetch('https://backend-55jj.onrender.com/add_cashbook_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -248,7 +248,7 @@ const CashBookDataTable = () => {
         var row_id = $(this).attr("data-lable");
         var row_type = $(this).attr("data-type");
         console.log(bill_text)
-          fetch('https://secondsweb.com/update_cashbook_values', { 
+          fetch('https://backend-55jj.onrender.com/update_cashbook_values', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -290,7 +290,7 @@ const CashBookDataTable = () => {
             $('#table_cashbook').DataTable().destroy();
           }
           $('#table_cashbook tbody').empty();
-          fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                 if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")
@@ -336,7 +336,7 @@ const CashBookDataTable = () => {
             $('#table_cashbook').DataTable().destroy();
           }
           $('#table_cashbook tbody').empty();
-          fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                 if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")
@@ -437,7 +437,7 @@ const CashBookDataTable = () => {
             var t_row =  $(this).closest('tr').index();
             setId(row_id);
             var array_list =  JSON.parse($("#table_cashbook tbody tr:eq("+t_row+") td:eq(7)").find('span').text());
-            fetch('https://secondsweb.com/cashbook_delete', { 
+            fetch('https://backend-55jj.onrender.com/cashbook_delete', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                         'Content-Type': 'application/json'  }, 
@@ -455,7 +455,7 @@ const CashBookDataTable = () => {
             loadJQueryAndDataTables()
               .then(($) => {
                 window.$ = window.jQuery = $;
-                fetch('https://secondsweb.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
+                fetch('https://backend-55jj.onrender.com/cashbook_data'+'/'+localStorage.getItem('id')).then((res) =>
                   res.json().then((jsdata) => {
                     for (let i = 0; i < jsdata.cashbook_data.length; i++) {
                       if(jsdata.cashbook_data[i].pay_start.toString().trim() != "started")

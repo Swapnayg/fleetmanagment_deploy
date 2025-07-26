@@ -43,7 +43,7 @@ const TaxReportLists = () => {
     var cust_Name = "Tax Report";
     var f_st_date = moment(startDate).format("D MMMM YYYY");
     var f_en_date = moment(endDate).format("D MMMM YYYY");
-    fetch('https://secondsweb.com/generateTaxReport_pdf', { 
+    fetch('https://backend-55jj.onrender.com/generateTaxReport_pdf', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -104,7 +104,7 @@ const TaxReportLists = () => {
       $('#tbl_sale_rpt').DataTable().destroy();
     }
     $('#tbl_sale_rpt tbody').empty();
-    fetch("https://secondsweb.com/get_tax_report_data", { 
+    fetch("https://backend-55jj.onrender.com/get_tax_report_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -141,7 +141,7 @@ const TaxReportLists = () => {
           const en_Date = new Date(endDate);
           let total_tax_in  = 0;
           let total_tax_out  = 0; 
-          fetch("https://secondsweb.com/get_tax_report_data", { 
+          fetch("https://backend-55jj.onrender.com/get_tax_report_data", { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 

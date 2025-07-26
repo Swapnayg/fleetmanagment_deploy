@@ -47,7 +47,7 @@ function numberWithCommas(x) {
 
 const handleIncomeExp = (e) => {
    e.preventDefault();
-   fetch("https://secondsweb.com/main_area_data",{method: 'POST', 
+   fetch("https://backend-55jj.onrender.com/main_area_data",{method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
         body: JSON.stringify({"overallType":e.target.value, userid:localStorage.getItem('id')})
@@ -191,7 +191,7 @@ function addProgressBar(stk, alert, perc) {
     }
 const handleOverall = (e) => {
    e.preventDefault();
-   fetch("https://secondsweb.com/main_overall_data",{method: 'POST', 
+   fetch("https://backend-55jj.onrender.com/main_overall_data",{method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
         body: JSON.stringify({"overallType":e.target.value, userid:localStorage.getItem('id')})
@@ -205,7 +205,7 @@ const handleOverall = (e) => {
  useEffect(() => {
   var username = localStorage.getItem('username');
   if (username) {
-     fetch("https://secondsweb.com/main_overall_data",{method: 'POST', 
+     fetch("https://backend-55jj.onrender.com/main_overall_data",{method: 'POST', 
          headers: {   'Accept': 'application/json',
          'Content-Type': 'application/json'  }, 
          body: JSON.stringify({"overallType":'year', userid:localStorage.getItem('id')})
@@ -213,7 +213,7 @@ const handleOverall = (e) => {
          res.json().then((jsprovdata) => {
          setdoNutseriesData([parseInt(jsprovdata.cm_total_revenue), parseInt(jsprovdata.cm_total_expense), parseInt(jsprovdata.cm_total_income)]);
       }));
-    fetch("https://secondsweb.com/main_area_data",{method: 'POST', 
+    fetch("https://backend-55jj.onrender.com/main_area_data",{method: 'POST', 
          headers: {   'Accept': 'application/json',
          'Content-Type': 'application/json'  }, 
          body: JSON.stringify({"overallType":'year', userid:localStorage.getItem('id') })
@@ -232,7 +232,7 @@ const handleOverall = (e) => {
             },
          ]);
       }));   
-    fetch('https://secondsweb.com/main_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/main_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsprovdata) => {
         settotalRevenue(numberWithCommas(jsprovdata.cm_total_revenue).toString().trim().replace("-",""));
         setperTotalRevenue(jsprovdata.total_rev_diff.toString().trim().replace("-",""));

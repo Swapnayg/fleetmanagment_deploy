@@ -36,7 +36,7 @@ const OilsVehicleLists = () => {
 
   const handlePrint = (e) => {
     var party_type = 'vehicle';
-    fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+    fetch('https://backend-55jj.onrender.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
     .then(resp => resp.blob())
     .then(blob => {
       const url = window.URL.createObjectURL(blob);
@@ -85,7 +85,7 @@ const OilsVehicleLists = () => {
     {
       if($("#btnvehclesubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_vehicle_values', { 
+        fetch('https://backend-55jj.onrender.com/add_vehicle_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -113,7 +113,7 @@ const OilsVehicleLists = () => {
       }
       else if($("#btnvehclesubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_vehicle_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_vehicle_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -158,7 +158,7 @@ const OilsVehicleLists = () => {
       $('#vehicle_table').DataTable().destroy();
     }
     $('#vehicle_table tbody').empty();
-    fetch('https://secondsweb.com/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         if(jsdata[i].veh_type.toString().trim() == "oil")
@@ -194,7 +194,7 @@ const OilsVehicleLists = () => {
         setledParChatId(chart_id);
         console.log(chart_id);
         console.log(row_id);
-        fetch('https://secondsweb.com/ledger_account_data', { 
+        fetch('https://backend-55jj.onrender.com/ledger_account_data', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -253,7 +253,7 @@ const OilsVehicleLists = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setVehcileId(row_id);
-        fetch('https://secondsweb.com/vehicle_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/vehicle_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -271,7 +271,7 @@ const OilsVehicleLists = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/vehicle_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               if(jsdata[i].veh_type.toString().trim() == "oil")

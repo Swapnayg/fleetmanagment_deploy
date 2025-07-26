@@ -69,7 +69,7 @@ const NewCustomerList = () => {
     {
       if($("#btcclientsubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_customer_values', { 
+        fetch('https://backend-55jj.onrender.com/add_customer_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -128,7 +128,7 @@ const NewCustomerList = () => {
       let table;
       $("#client_group").empty();
       //$("#client_group").append("<option value=''>Select Group</option>");
-      fetch('https://secondsweb.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
         for (let i = 0; i < jsprovdata.length; i++) {
           $("#client_group").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].group_name + "</option>");

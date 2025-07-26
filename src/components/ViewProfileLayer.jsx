@@ -54,7 +54,7 @@ const ViewProfileLayer = () => {
     e.preventDefault();
     if(canSubmit)
     {
-        fetch('https://secondsweb.com/update_user_profile', { 
+        fetch('https://backend-55jj.onrender.com/update_user_profile', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -72,7 +72,7 @@ const ViewProfileLayer = () => {
   function refreshtable()
   {
     handleReset();
-    fetch('https://secondsweb.com/get_user', { 
+    fetch('https://backend-55jj.onrender.com/get_user', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -106,7 +106,7 @@ const ViewProfileLayer = () => {
     {
       if(u_password.toString().trim() == u_confpassword.toString().trim())
       {
-        fetch('https://secondsweb.com/change_Password', { 
+        fetch('https://backend-55jj.onrender.com/change_Password', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -153,7 +153,7 @@ const ViewProfileLayer = () => {
     if (username) {
       setId(localStorage.getItem('id'));
       setuserName(localStorage.getItem('username').toString().toUpperCase());
-      fetch('https://secondsweb.com/get_user', { 
+      fetch('https://backend-55jj.onrender.com/get_user', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

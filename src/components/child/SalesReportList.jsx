@@ -42,7 +42,7 @@ const SalesReportList = () => {
     var cust_Name = "Sales Report";
     var f_st_date = moment(startDate).format("D MMMM YYYY");
     var f_en_date = moment(endDate).format("D MMMM YYYY");
-    fetch('https://secondsweb.com/generateSalesReport_pdf', { 
+    fetch('https://backend-55jj.onrender.com/generateSalesReport_pdf', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -104,7 +104,7 @@ const SalesReportList = () => {
       $('#tbl_sale_rpt').DataTable().destroy();
     }
     $('#tbl_sale_rpt tbody').empty();
-    fetch("https://secondsweb.com/get_sales_report_data", { 
+    fetch("https://backend-55jj.onrender.com/get_sales_report_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -135,7 +135,7 @@ const SalesReportList = () => {
            window.$ = window.jQuery = $;
           const st_Date = new Date(startDate);
           const en_Date = new Date(endDate);
-          fetch("https://secondsweb.com/get_sales_report_data", { 
+          fetch("https://backend-55jj.onrender.com/get_sales_report_data", { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 

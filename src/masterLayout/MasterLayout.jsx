@@ -19,7 +19,7 @@ const MasterLayout = ({ children }) => {
 
 const handleLogOut = (e) => {
   e.preventDefault();
-  fetch('https://secondsweb.com/logout').then(res => {
+  fetch('https://backend-55jj.onrender.com/logout').then(res => {
       return res.json();
     }).then(data => {
       localStorage.clear();
@@ -28,7 +28,7 @@ const handleLogOut = (e) => {
 }
 
   useEffect(() => {
-    const response =  fetch("https://secondsweb.com/search_select",{
+    const response =  fetch("https://backend-55jj.onrender.com/search_select",{
           method: 'POST', 
           headers:{ 'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -47,7 +47,7 @@ const handleLogOut = (e) => {
         }); 
         setsuggestions(formattedoptions);
       }));
-    fetch('https://secondsweb.com/get_user', { 
+    fetch('https://backend-55jj.onrender.com/get_user', { 
       method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 

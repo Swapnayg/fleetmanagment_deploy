@@ -45,7 +45,7 @@ const NewInvoiceList = () => {
   const [selectList, setselectList] = useState();
 
   const loadOptions = (inputValue) =>{
-    return fetch("https://secondsweb.com/client_select",{
+    return fetch("https://backend-55jj.onrender.com/client_select",{
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -71,7 +71,7 @@ const NewInvoiceList = () => {
   const handleChange = (option) => {
     setSelectedOption(option);
     var sel_value = option.value.toString().trim();
-    fetch("https://secondsweb.com/client_details", {
+    fetch("https://backend-55jj.onrender.com/client_details", {
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -291,7 +291,7 @@ const handleAddItem = (e) => {
   if(Warehouse != 0) 
   {
     let rows = '';
-    fetch('https://secondsweb.com/product_data', { 
+    fetch('https://backend-55jj.onrender.com/product_data', { 
       method: 'POST', 
       headers: { 'Content-Type': 'application/json', }, 
       body: JSON.stringify({warehouse_id: Warehouse, userid:localStorage.getItem('id')})}).then(res => {
@@ -495,7 +495,7 @@ const handleAddItem = (e) => {
           ord_items.push({"product":product.toString().trim(),"name":name.toString().trim(),"qty":qty.toString().trim(),"rate":rate.toString().trim(),"item_tax":item_tax.toString().trim(),"tax_amt":tax_amt.toString().trim(),"item_discount":item_discount.toString().trim(),"dis_amt":dis_amt.toString().trim(),"total_amt":total_amt.toString().trim(),"invoice_num":invoice_num.toString().trim(),"description":description.toString().trim()})
        });
 
-        fetch('https://secondsweb.com/add_invoice_values', { 
+        fetch('https://backend-55jj.onrender.com/add_invoice_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -597,12 +597,12 @@ const handleDiscountChange = (e) => {
           refreshtableValues(t_row);
         });
         let table;
-        fetch('https://secondsweb.com/get_invoice_invNo'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/get_invoice_invNo'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsprovdata) => {
             setOInvoiceNo("INV_" + pad(parseInt(jsprovdata.data), 4) );
           }
         )); 
-        fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((data_party) => {
           $("#order_ware").empty();
           $("#order_ware").append("<option value=''>Select Warehouse</option>");

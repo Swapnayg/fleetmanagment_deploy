@@ -95,7 +95,7 @@ const PartyAddBill = () => {
         {
         if($("#btnpartybillsubmit").text().trim() == "Save")
           {
-          fetch('https://secondsweb.com/add_party_bill', { 
+          fetch('https://backend-55jj.onrender.com/add_party_bill', { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 
@@ -111,7 +111,7 @@ const PartyAddBill = () => {
         }
         else if($("#btnpartybillsubmit").text().trim() == "Update")
         {
-          fetch('https://secondsweb.com/update_party_bill', { 
+          fetch('https://backend-55jj.onrender.com/update_party_bill', { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 
@@ -144,7 +144,7 @@ const PartyAddBill = () => {
             $('#party_bill_table').DataTable().destroy();
           }
           $('#party_bill_table tbody').empty();
-          fetch("https://secondsweb.com/party_bill_data/" + localStorage.getItem('id')).then((res) =>
+          fetch("https://backend-55jj.onrender.com/party_bill_data/" + localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
              for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';
@@ -168,7 +168,7 @@ const PartyAddBill = () => {
   useEffect(() => {
     var username = localStorage.getItem('username');
     if (username) {
-      fetch('https://secondsweb.com/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsprovdata) => {
         setBiltyNo("PT_" +pad(parseInt(jsprovdata.data), 3) );
       }
@@ -201,7 +201,7 @@ const PartyAddBill = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setGBiltyId(row_id);
-        fetch('https://secondsweb.com/party_bills_delete/'+row_id +'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/party_bills_delete/'+row_id +'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({})
@@ -214,7 +214,7 @@ const PartyAddBill = () => {
           }
         });
       });
-      fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_party) => {
           $("#bill_party_1").empty();
           $("#bill_party_1").append("<option value=''>Select Party</option>");
@@ -227,7 +227,7 @@ const PartyAddBill = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

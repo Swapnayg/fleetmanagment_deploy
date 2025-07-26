@@ -26,7 +26,7 @@ const CitySetupList = () => {
     {
       if($("#btncitysubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_city_setup', { 
+        fetch('https://backend-55jj.onrender.com/add_city_setup', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -42,7 +42,7 @@ const CitySetupList = () => {
       }
       else if($("#btncitysubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_city_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_city_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -73,7 +73,7 @@ const CitySetupList = () => {
       $('#city_table').DataTable().destroy();
     }
     $('#city_table tbody').empty();
-    fetch('https://secondsweb.com/city_setup_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/city_setup_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -95,7 +95,7 @@ const CitySetupList = () => {
       let table;
       $("select").empty();
       $("select").append("<option value=''>Select Province</option>");
-      fetch('https://secondsweb.com/province_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/province_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
         for (let i = 0; i < jsprovdata.length; i++) {
           $("select").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].prov_name + "</option>");
@@ -117,7 +117,7 @@ const CitySetupList = () => {
       e.preventDefault();
       var row_id = $(this).attr("data-lable");
       setId(row_id);
-      fetch('https://secondsweb.com/city_setup_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+      fetch('https://backend-55jj.onrender.com/city_setup_delete/'+row_id+'/'+localStorage.getItem('id'), { 
         method: 'DELETE', 
         headers: { 'Content-province': 'application/json', }, 
         body: JSON.stringify({})
@@ -133,7 +133,7 @@ const CitySetupList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/city_setup_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/city_setup_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

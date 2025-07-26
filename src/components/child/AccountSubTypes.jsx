@@ -27,7 +27,7 @@ const AccountSubTypeList = () => {
     {
       if($("#btcnsubaccntubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_sub_acconttype_values', { 
+        fetch('https://backend-55jj.onrender.com/add_sub_acconttype_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -43,7 +43,7 @@ const AccountSubTypeList = () => {
       }
       else if($("#btcnsubaccntubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_account_sub_types_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_account_sub_types_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -75,7 +75,7 @@ const AccountSubTypeList = () => {
       $('#accnt_subtype_table').DataTable().destroy();
     }
     $('#accnt_subtype_table tbody').empty();
-    fetch('https://secondsweb.com/account_sub_type_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/account_sub_type_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -105,7 +105,7 @@ const AccountSubTypeList = () => {
       let table;
       $("#main_accnt").empty();
         $("#main_accnt").append("<option value=''>Select Account</option>");
-          fetch('https://secondsweb.com/account_type_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/account_type_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsprovdata) => {
               for (let i = 0; i < jsprovdata.length; i++) {
                 $("#main_accnt").append("<option style='text-transform:capitalize' value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].type_name + "</option>");     
@@ -129,7 +129,7 @@ const AccountSubTypeList = () => {
       e.preventDefault();
       var row_id = $(this).attr("data-lable");
       setId(row_id);
-      fetch('https://secondsweb.com/accountsub_type_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+      fetch('https://backend-55jj.onrender.com/accountsub_type_delete/'+row_id+'/'+localStorage.getItem('id'), { 
         method: 'DELETE', 
         headers:{   'Accept': 'application/json',
                   'Content-Type': 'application/json'  }, 
@@ -146,7 +146,7 @@ const AccountSubTypeList = () => {
     loadJQueryAndDataTables()
       .then(($) => {
          window.$ = window.jQuery = $;
-        fetch('https://secondsweb.com/account_sub_type_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/account_sub_type_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsdata) => {
            for (let i = 0; i < jsdata.length; i++) {
             let row = '<tr>';

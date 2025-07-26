@@ -271,7 +271,7 @@ const [seriesData, setseriesData] = useState([
 
 const handleIncomeExp = (e) => {
   e.preventDefault();
-  fetch("https://secondsweb.com/oils_area_data",{method: 'POST', 
+  fetch("https://backend-55jj.onrender.com/oils_area_data",{method: 'POST', 
    headers: {   'Accept': 'application/json',
      'Content-Type': 'application/json'  }, 
      body: JSON.stringify({"overallType":e.target.value, userid:localStorage.getItem('id')})
@@ -305,7 +305,7 @@ const handlePurchase = (e) => {
 useEffect(() => {
     var username = localStorage.getItem('username');
     if (username) {
-        fetch("https://secondsweb.com/oils_overall_data",{method: 'POST', 
+        fetch("https://backend-55jj.onrender.com/oils_overall_data",{method: 'POST', 
         headers: {   'Accept': 'application/json',
           'Content-Type': 'application/json'  }, 
           body: JSON.stringify({"overallType":'year', userid:localStorage.getItem('id')})
@@ -317,7 +317,7 @@ useEffect(() => {
           setPenPay(numberWithCommas(jsprovdata.totalpay).toString().trim().replace("-",""));
         setdoNutseriesData([parseInt(jsprovdata.perTotalPay), parseInt(jsprovdata.perTotalPRec)]);
     })); 
-    fetch("https://secondsweb.com/oils_area_data",{method: 'POST', 
+    fetch("https://backend-55jj.onrender.com/oils_area_data",{method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
         body: JSON.stringify({"overallType":'year',userid:localStorage.getItem('id')})
@@ -336,7 +336,7 @@ useEffect(() => {
         },
       ]);
   }));
-    fetch('https://secondsweb.com/oils_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/oils_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
           setManiCount(jsprovdata.cw_mani_count.toString().trim().replace("-",""));
           setperManiCount(jsprovdata.mani_count_diff.toString().trim().replace("-",""));

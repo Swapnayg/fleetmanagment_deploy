@@ -28,7 +28,7 @@ const ProductList = () => {
     {
       if($("#btcnprodsubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_product_values', { 
+        fetch('https://backend-55jj.onrender.com/add_product_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -67,7 +67,7 @@ const ProductList = () => {
       let table;
       $("#prod_category").empty();  
       $("#prod_category").append("<option value=''>Select Category</option>");
-      fetch('https://secondsweb.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsprovdata) => {
               for (let i = 0; i < jsprovdata.length; i++) {
                 $("#prod_category").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].cat_name + "</option>");
@@ -76,7 +76,7 @@ const ProductList = () => {
 
       $("#prod_unit").empty();
       $("#prod_unit").append("<option value=''>Select Warehouse</option>");
-      fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
           for (let i = 0; i < jsprovdata.length; i++) {
             $("#prod_unit").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].ware_name + "</option>");

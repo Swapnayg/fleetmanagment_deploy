@@ -279,7 +279,7 @@ const [seriesData, setseriesData] = useState([
 
 const handleIncomeExp = (e) => {
    e.preventDefault();
-   fetch("https://secondsweb.com/sales_area_data",{method: 'POST', 
+   fetch("https://backend-55jj.onrender.com/sales_area_data",{method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
         body: JSON.stringify({"overallType":e.target.value, userid:localStorage.getItem('id')})
@@ -305,7 +305,7 @@ const handleIncomeExp = (e) => {
 useEffect(() => {
    var username = localStorage.getItem('username');
    if (username) {
-      fetch("https://secondsweb.com/sales_overall_data",{method: 'POST', 
+      fetch("https://backend-55jj.onrender.com/sales_overall_data",{method: 'POST', 
          headers: {   'Accept': 'application/json',
          'Content-Type': 'application/json'  }, 
          body: JSON.stringify({"overallType":'year', userid:localStorage.getItem('id')})
@@ -314,7 +314,7 @@ useEffect(() => {
          setdoNutseriesData([parseInt(jsprovdata.cm_expense_gen), parseInt(jsprovdata.cm_gross_purch_val), parseInt(jsprovdata.cm_income_gen), parseInt(jsprovdata.cm_gross_total) ]);
       })); 
       
-      fetch("https://secondsweb.com/sales_area_data",{method: 'POST', 
+      fetch("https://backend-55jj.onrender.com/sales_area_data",{method: 'POST', 
          headers: {   'Accept': 'application/json',
          'Content-Type': 'application/json'  }, 
          body: JSON.stringify({"overallType":'year', userid:localStorage.getItem('id') })
@@ -334,7 +334,7 @@ useEffect(() => {
          ]);
       }));   
 
-      fetch('https://secondsweb.com/sales_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/sales_dashboard_data'+'/'+localStorage.getItem('id')).then((res) =>
          res.json().then((jsprovdata) => {
             jsprovdata.stk_details_data.sort(function(a,b){return a.stkQty - b.stkQty;});
             jsprovdata.chartOfSuppl.sort(function(a,b){return a.supplNetworth - b.supplNetworth;});

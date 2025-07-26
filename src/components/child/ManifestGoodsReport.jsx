@@ -23,7 +23,7 @@ const ManifestGoodsReport = () => {
 
    const handlePrint = (e) => {
      var cust_Name = "Manifest Goods Report";
-     fetch('https://secondsweb.com/generateManifestReport_pdf', { 
+     fetch('https://backend-55jj.onrender.com/generateManifestReport_pdf', { 
        method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -76,7 +76,7 @@ const ManifestGoodsReport = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/mainifest_goods_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
               let freight_amt = 0;
               let comm_amt = 0;

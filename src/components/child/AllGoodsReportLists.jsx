@@ -28,7 +28,7 @@ const AllGoodsReportLists = () => {
       $('#table_all_party').DataTable().destroy();
     }
     $('#table_all_party tbody').empty();
-    fetch("https://secondsweb.com/get_goods_oils_data", { 
+    fetch("https://backend-55jj.onrender.com/get_goods_oils_data", { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -87,7 +87,7 @@ const AllGoodsReportLists = () => {
   }
    const handlePrint = (e) => {
      var cust_Name = "All Goods Report";
-     fetch('https://secondsweb.com/generateAllGoodsOilsReport_pdf', { 
+     fetch('https://backend-55jj.onrender.com/generateAllGoodsOilsReport_pdf', { 
        method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -140,7 +140,7 @@ const AllGoodsReportLists = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch("https://secondsweb.com/get_goods_oils_data", { 
+          fetch("https://backend-55jj.onrender.com/get_goods_oils_data", { 
             method: 'POST', 
             headers: {   'Accept': 'application/json',
               'Content-Type': 'application/json'  }, 

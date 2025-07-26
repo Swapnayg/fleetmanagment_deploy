@@ -27,7 +27,7 @@ const ManageCustGroupList = () => {
     {
       if($("#btngroupsubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_cust_group_values', { 
+        fetch('https://backend-55jj.onrender.com/add_cust_group_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -43,7 +43,7 @@ const ManageCustGroupList = () => {
       }
       else if($("#btngroupsubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_c_group_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_c_group_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -74,7 +74,7 @@ const ManageCustGroupList = () => {
       $('#c_group_table').DataTable().destroy();
     }
     $('#c_group_table tbody').empty();
-    fetch('https://secondsweb.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -109,7 +109,7 @@ const ManageCustGroupList = () => {
       $(document).off('click', '.c_grp_delete').on("click", '.c_grp_delete', function(e){
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
-        fetch('https://secondsweb.com/C_group_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/C_group_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                   'Content-Type': 'application/json'  }, 
@@ -128,7 +128,7 @@ const ManageCustGroupList = () => {
     loadJQueryAndDataTables()
       .then(($) => {
          window.$ = window.jQuery = $;
-        fetch('https://secondsweb.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/c_group_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsdata) => {
            for (let i = 0; i < jsdata.length; i++) {
             let row = '<tr>';

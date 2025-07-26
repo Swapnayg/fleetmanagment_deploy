@@ -53,7 +53,7 @@ const PartyGoodsLists = () => {
   //const canSubmit = $("#add_item_table tbody tr").length > 0 && invoiceParty.length > 0 && salesName.length > 0 && thankMssg.length > 0;
 
   const handleDownload = (e) => {
-        // fetch('https://secondsweb.com/generatebill_pdf/'+ view_row_id+'/'+localStorage.getItem('id'))
+        // fetch('https://backend-55jj.onrender.com/generatebill_pdf/'+ view_row_id+'/'+localStorage.getItem('id'))
         // .then(resp => resp.blob())
         // .then(blob => {
         //   const url = window.URL.createObjectURL(blob);
@@ -81,7 +81,7 @@ const PartyGoodsLists = () => {
     // {
     //  if(editMode == "Edit")
     //   {
-    //     fetch('https://secondsweb.com/update_party_bill', { 
+    //     fetch('https://backend-55jj.onrender.com/update_party_bill', { 
     //       method: 'POST', 
     //       headers: { 'Content-Type': 'application/json', }, 
     //       body: JSON.stringify({userid:localStorage.getItem('id'), pb_partybillId:partybillId,pb_invoiceNo:invoiceNo, pb_issueDate: issueDate, pb_dueDate: dueDate, pb_partyid: partyid, pb_invoiceParty: invoiceParty, pb_subTotal: subTotal, pb_salesName: salesName, pb_thankMssg:thankMssg, pb_subTotal:subTotal,pb_select_bilty:selectList.toString().trim()})
@@ -100,7 +100,7 @@ const PartyGoodsLists = () => {
     //   $('#party_gooods_table').DataTable().destroy();
     // }
     // $('#party_gooods_table tbody').empty();
-    // fetch('https://secondsweb.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
+    // fetch('https://backend-55jj.onrender.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
     //   res.json().then((jsdata) => {
     //     if(selec_val == "")
     //     {
@@ -198,7 +198,7 @@ const PartyGoodsLists = () => {
   //   if(invoiceParty != 0) 
   //   {
   //     let rows = '';
-  //     fetch('https://secondsweb.com/mainifest_good_data', { 
+  //     fetch('https://backend-55jj.onrender.com/mainifest_good_data', { 
   //       method: 'POST', 
   //       headers: { 'Content-Type': 'application/json', }, 
   //       body: JSON.stringify({party_id: partyid, userid:localStorage.getItem('id')})
@@ -344,7 +344,7 @@ const PartyGoodsLists = () => {
     //   setlisthidden(true);
     //   $('#tbl_view_party tbody').empty();
     //   var row_id = $(this).attr("data-lable");
-    //   fetch('https://secondsweb.com/get_party_bill_data', { 
+    //   fetch('https://backend-55jj.onrender.com/get_party_bill_data', { 
     //     method: 'POST', 
     //     headers: { 'Content-Type': 'application/json', }, 
     //     body: JSON.stringify({userid:localStorage.getItem('id'), party_bill_id: row_id, party_bill_type: "goods"})
@@ -389,7 +389,7 @@ const PartyGoodsLists = () => {
     //   seteditMode("Edit");
     //   $('#add_item_table tbody').empty();
     //   var row_id = $(this).attr("data-lable");
-    //   fetch('https://secondsweb.com/get_party_bill_data', { 
+    //   fetch('https://backend-55jj.onrender.com/get_party_bill_data', { 
     //     method: 'POST', 
     //     headers: { 'Content-Type': 'application/json', }, 
     //     body: JSON.stringify({party_bill_id: row_id , party_bill_type: "goods",userid:localStorage.getItem('id')})
@@ -436,7 +436,7 @@ const PartyGoodsLists = () => {
     // $(document).off('click', '.party_bill_delete').on("click", '.party_bill_delete', function(e){
     //   e.preventDefault();
     // var row_id = $(this).attr("data-lable");
-    //   fetch('https://secondsweb.com/party_bill_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+    //   fetch('https://backend-55jj.onrender.com/party_bill_delete/'+row_id+'/'+localStorage.getItem('id'), { 
     //     method: 'DELETE', 
     //     headers: { 'Content-Type': 'application/json', }, 
     //     body: JSON.stringify({})
@@ -487,13 +487,13 @@ const PartyGoodsLists = () => {
     // });
 
     //   let table;
-    //   fetch('https://secondsweb.com/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
+    //   fetch('https://backend-55jj.onrender.com/get_party_bill_billNo'+'/'+localStorage.getItem('id')).then((res) =>
     //     res.json().then((jsprovdata) => {
     //       setinvoiceNo("PBG" + pad(parseInt(jsprovdata.data), 4));
     //     }
     //   ));
 
-    //    fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+    //    fetch('https://backend-55jj.onrender.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
     //     res.json().then((data_party) => {
     //     $("#party_bill").empty();
     //     $("#party_bill").append("<option value=''>Select Party</option>");
@@ -508,7 +508,7 @@ const PartyGoodsLists = () => {
     //   loadJQueryAndDataTables()
     //     .then(($) => {
     //        window.$ = window.jQuery = $;
-    //       fetch('https://secondsweb.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
+    //       fetch('https://backend-55jj.onrender.com/party_bill_data'+'/'+localStorage.getItem('id')).then((res) =>
     //         res.json().then((jsdata) => {
     //          for (let i = 0; i < jsdata.length; i++) {
     //           if(jsdata[i].invoice_type.toString().trim() == "goods")

@@ -32,7 +32,7 @@ const OilsPartyLists = () => {
 
 const handlePrint = (e) => {
   var party_type = 'party';
-  fetch('https://secondsweb.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
+  fetch('https://backend-55jj.onrender.com/generate_pdf/'+party_type+'/'+l_partyId+'/'+localStorage.getItem('id'))
   .then(resp => resp.blob())
   .then(blob => {
     const url = window.URL.createObjectURL(blob);
@@ -91,7 +91,7 @@ const handleBack = (e) => {
     {
       if($("#btnpartysubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_party', { 
+        fetch('https://backend-55jj.onrender.com/add_party', { 
           method: 'POST', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({userid:localStorage.getItem('id'), party: partyName, p_type: 'oil', p_contactPerson: contactPerson, p_phoneNo: phoneNo})
@@ -118,7 +118,7 @@ const handleBack = (e) => {
       }
       else if($("#btnpartysubmit").text().trim() == "Update")
       {
-          fetch('https://secondsweb.com/update_party', { 
+          fetch('https://backend-55jj.onrender.com/update_party', { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json', }, 
             body: JSON.stringify({userid:localStorage.getItem('id'), party_id:partyId, party: partyName, p_type: 'oil', p_contactPerson: contactPerson, p_phoneNo: phoneNo})
@@ -150,7 +150,7 @@ const handleBack = (e) => {
       $('#party_table').DataTable().destroy();
     }
     $('#party_table tbody').empty();
-    fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         if(jsdata[i].type.toString().trim() == "oil")
@@ -182,7 +182,7 @@ const handleBack = (e) => {
         setHiddenmain(true);
         setledPartId(row_id);
         setledParChatId(chart_id);
-        fetch('https://secondsweb.com/ledger_account_data', { 
+        fetch('https://backend-55jj.onrender.com/ledger_account_data', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -237,7 +237,7 @@ const handleBack = (e) => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('https://secondsweb.com/party_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/party_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers: { 'Content-Type': 'application/json', }, 
           body: JSON.stringify({})
@@ -255,7 +255,7 @@ const handleBack = (e) => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/party_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               if(jsdata[i].type.toString().trim() == "oil")

@@ -31,7 +31,7 @@ const NewSupplierList = () => {
     {
       if($("#btcsupplsubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_supplier_values', { 
+        fetch('https://backend-55jj.onrender.com/add_supplier_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 

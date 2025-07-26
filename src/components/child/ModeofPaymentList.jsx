@@ -27,7 +27,7 @@ const ModeofPayList = () => {
     {
       if($("#btnmodesubmit").text().trim() == "Save")
       {
-        fetch('https://secondsweb.com/add_mode_pay', { 
+        fetch('https://backend-55jj.onrender.com/add_mode_pay', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -43,7 +43,7 @@ const ModeofPayList = () => {
       }
       else if($("#btnmodesubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_mode_of_pay', { 
+            fetch('https://backend-55jj.onrender.com/update_mode_of_pay', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -75,7 +75,7 @@ const ModeofPayList = () => {
       $('#mode_pay_table').DataTable().destroy();
     }
     $('#mode_pay_table tbody').empty();
-    fetch('https://secondsweb.com/mode_of_pay_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/mode_of_pay_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -113,7 +113,7 @@ const ModeofPayList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('https://secondsweb.com/mode_of_pay_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/mode_of_pay_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers: { 'Content-province': 'application/json', }, 
           body: JSON.stringify({})
@@ -130,7 +130,7 @@ const ModeofPayList = () => {
       loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/mode_of_pay_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/mode_of_pay_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';

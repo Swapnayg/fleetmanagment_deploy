@@ -46,7 +46,7 @@ const NewReccInvoiceList = () => {
   const [selectList, setselectList] = useState();
 
   const loadOptions = (inputValue) =>{
-    return fetch("https://secondsweb.com/client_select",{
+    return fetch("https://backend-55jj.onrender.com/client_select",{
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -72,7 +72,7 @@ const NewReccInvoiceList = () => {
   const handleChange = (option) => {
     setSelectedOption(option);
     var sel_value = option.value.toString().trim();
-    fetch("https://secondsweb.com/client_details", {
+    fetch("https://backend-55jj.onrender.com/client_details", {
       method: 'POST', 
       headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  }, 
@@ -289,7 +289,7 @@ const NewReccInvoiceList = () => {
 
   const handleAddItem = (e) => {
     let rows = '';
-    fetch('https://secondsweb.com/product_data'+'/'+localStorage.getItem('id')).then(res => {
+    fetch('https://backend-55jj.onrender.com/product_data'+'/'+localStorage.getItem('id')).then(res => {
         return res.json();
       }).then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -480,7 +480,7 @@ const NewReccInvoiceList = () => {
           ord_items.push({"product":product,"name":name,"qty":qty,"rate":rate,"item_tax":item_tax,"tax_amt":tax_amt,"item_discount":item_discount,"dis_amt":dis_amt,"total_amt":total_amt,"invoice_num":invoice_num,"description":description})
        });
 
-        fetch('https://secondsweb.com/add_recc_invoice_values', { 
+        fetch('https://backend-55jj.onrender.com/add_recc_invoice_values', { 
           method: 'POST', 
           headers: {   'Accept': 'application/json',
             'Content-Type': 'application/json'  }, 
@@ -585,12 +585,12 @@ const handleDiscountChange = (e) => {
       });
 
       let table;
-      fetch('https://secondsweb.com/get_recc_inv_invNo'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/get_recc_inv_invNo'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((jsprovdata) => {
           setOInvoiceNo("INV_" + pad(parseInt(jsprovdata.data), 4) );
         }
       )); 
-      fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+      fetch('https://backend-55jj.onrender.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
         res.json().then((data_party) => {
         $("#order_ware").empty();
         $("#order_ware").append("<option value=''>Select Warehouse</option>");

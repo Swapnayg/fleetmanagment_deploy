@@ -22,7 +22,7 @@ const ManageTrailBalanceList = () => {
     var cust_Name = "Trial Balance Report";
     var f_st_date = moment(startDate).format("D MMMM YYYY");
     var f_en_date = moment(endDate).format("D MMMM YYYY");
-    fetch('https://secondsweb.com/generateTrial_Bal_pdf', { 
+    fetch('https://backend-55jj.onrender.com/generateTrial_Bal_pdf', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -47,7 +47,7 @@ const ManageTrailBalanceList = () => {
     var cust_Name =  "Trial Balance Report";
     var f_st_date = moment(startDate).format("D MMMM YYYY");
     var f_en_date = moment(endDate).format("D MMMM YYYY");
-    fetch('https://secondsweb.com/generatTrial_Balance_Excel', { 
+    fetch('https://backend-55jj.onrender.com/generatTrial_Balance_Excel', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 
@@ -110,7 +110,7 @@ const ManageTrailBalanceList = () => {
     const st_Date = new Date(st_date);
     const en_Date = new Date(en_date);
     $("#profit-loss-menu").empty();
-    fetch('https://secondsweb.com/get_trial_bal_details', { 
+    fetch('https://backend-55jj.onrender.com/get_trial_bal_details', { 
       method: 'POST', 
       headers: {   'Accept': 'application/json',
         'Content-Type': 'application/json'  }, 

@@ -40,7 +40,7 @@ const ManageProductList = () => {
     {
       if($("#btcnproductubmit").text().trim() == "Update")
         {
-            fetch('https://secondsweb.com/update_product_setup', { 
+            fetch('https://backend-55jj.onrender.com/update_product_setup', { 
               method: 'POST', 
               headers:{   'Accept': 'application/json',
                 'Content-Type': 'application/json'  },
@@ -84,7 +84,7 @@ const ManageProductList = () => {
       $('#product_table').DataTable().destroy();
     }
     $('#product_table tbody').empty();
-    fetch('https://secondsweb.com/product_data'+'/'+localStorage.getItem('id')).then((res) =>
+    fetch('https://backend-55jj.onrender.com/product_data'+'/'+localStorage.getItem('id')).then((res) =>
       res.json().then((jsdata) => {
        for (let i = 0; i < jsdata.length; i++) {
         let row = '<tr>';
@@ -110,7 +110,7 @@ const ManageProductList = () => {
         let table;
         $("#prod_category").empty();
         $("#prod_category").append("<option value=''>Select Category</option>");
-        fetch('https://secondsweb.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/p_category_data'+'/'+localStorage.getItem('id')).then((res) =>
           res.json().then((jsprovdata) => {
           for (let i = 0; i < jsprovdata.length; i++) {
             $("#prod_category").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].cat_name + "</option>");
@@ -142,7 +142,7 @@ const ManageProductList = () => {
         e.preventDefault();
         var row_id = $(this).attr("data-lable");
         setId(row_id);
-        fetch('https://secondsweb.com/product_delete/'+row_id+'/'+localStorage.getItem('id'), { 
+        fetch('https://backend-55jj.onrender.com/product_delete/'+row_id+'/'+localStorage.getItem('id'), { 
           method: 'DELETE', 
           headers:{   'Accept': 'application/json',
                     'Content-Type': 'application/json'  }, 
@@ -158,7 +158,7 @@ const ManageProductList = () => {
     });
         $("#prod_unit").empty();
         $("#prod_unit").append("<option value=''>Select Warehouse</option>");
-        fetch('https://secondsweb.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
+        fetch('https://backend-55jj.onrender.com/warehouse_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsprovdata) => {
             for (let i = 0; i < jsprovdata.length; i++) {
               $("#prod_unit").append("<option value=\"" + jsprovdata[i].id  + "\">" + jsprovdata[i].ware_name + "</option>");
@@ -167,7 +167,7 @@ const ManageProductList = () => {
         loadJQueryAndDataTables()
         .then(($) => {
            window.$ = window.jQuery = $;
-          fetch('https://secondsweb.com/product_data'+'/'+localStorage.getItem('id')).then((res) =>
+          fetch('https://backend-55jj.onrender.com/product_data'+'/'+localStorage.getItem('id')).then((res) =>
             res.json().then((jsdata) => {
             for (let i = 0; i < jsdata.length; i++) {
               let row = '<tr>';
